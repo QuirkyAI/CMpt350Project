@@ -1,0 +1,90 @@
+Final Project Design
+
+March 30, 2016
+11:51 AM
+
+	- Purpose
+		○ To store sales data for video games to gain a larger view on the financial power of the video game industry
+	- Database Design
+		○ Need to track the following information on a video game
+			§ Title
+			§ Release Date (year)
+			§ Release Regions
+			§ Genre/Description
+			§ Publisher
+			§ Developer
+			§ Systems
+				□ PC, PS4, Xbox One, Wii U, 3DS, etc.
+			§ Sales from individual organizations and groups
+		○ Tables
+			§ Genre/Tags table
+				□ Game Title
+				□ Release Date (year)
+				□ Tag
+					® All primary keys
+			§ Games Table
+				□ Title
+					® Primary Key
+				□ Release Date
+					® Primary Key
+				□ Publisher
+					® Foreign Key to publisher table
+				□ Developer
+					® Foreign Key to developer table
+			§ Systems Table
+				□ Systems
+					® Used for data integrity
+			§ Games-Systems Table
+				□ Game Title
+				□ Release Year
+				□ Systems
+			§ Publisher Table
+				□ Publisher Name
+				□ Creation Year
+				□ Ending Year (if ended)
+				□ Headquarters Region
+			§ Developer Table
+				□ Developer Name
+				□ Creation year
+				□ Ending Year (if ended)
+				□ Headquarters Region
+			§ Release Regions
+				□ Game Title
+				□ Release Year
+				□ Region
+			§ Region Table
+				□ Region
+					® Used for data integrity
+			§ Sales Table
+				□ Game Title
+				□ Release Year
+				□ Price
+				□ Units Sold
+				□ Date Updated
+				□ Organization
+				□ Region
+				□ User Entered (Private)?
+		○ User Capability on the Tables
+			§ Users can:
+				□ Modify new games
+				□ Modify sales
+				□ Modify publishers
+				□ Modify developers
+				□ Modify tags
+				□ Modify games-systems
+			§ Users cannot
+				□ Modify regions
+				□ Modify systems
+		○ Basic Design Idea
+			§ Use Dropdown menus for posting, updating, reading, and deleting
+			§ Grab data from appropriate HTML forms
+				□ Translate into SQL code
+			§ Possible "Read" queries
+				□ Gather games by tag
+				□ Gather developers by tag
+				□ Gather sales by game
+				□ Gather sales by system
+				□ Gather games by system
+				□ Gather regions by game
+				□ Gather sales by publisher
+				□ Gather games by region

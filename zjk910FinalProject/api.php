@@ -4,6 +4,9 @@
 	// STUDENT NO." 11083636
 
 	require_once('controller/game_controller.php');
+	require_once('controller/gamesystems_controller.php');
+	require_once('controller/gameregions_controller.php');
+	require_once('controller/gametags_controller.php');
 	require_once('controller/pubinfo_controller.php');
 	require_once('controller/sales_controller.php');
 
@@ -31,20 +34,48 @@
 		  array_push($routes,$route);
 	  }
 
+	  $objdev_controller = new developer_controller();
 	  $objgame_controller= new game_controller();
-	  $objpubinfo_controller = new pubinfo_controller();
+	  $objgs_controller = new gamesystems_controller();
+	  $objgr_controller = new gameregions_controller();
+	  $objgtags_controller = new gametags_controller();
+	  $objpub_controller = new publisher_controller();
+	  $objreg_controller = new regions_controller();
 	  $objsales_controller = new sales_controller();
+	  $objsys_controller = new systems_controller();
 	  $method = $_SERVER['REQUEST_METHOD'];
 
 	 
 	  if (preg_match('/[a-z]/',$routes[0]))
 	  {
-		if($routes[0]=="gameinfo")
+		// Contacting developers table
+		if($routes[0]=='developers')
 		{
+			// Checking to see if the name of a developer has been given
+			if (isset(routes[1]))
+			{
+				if(preg_match('/[a-z]/',$routes[1]))
+				{
+					$objdev_controller->setParameters($routes);
+				}
+			}
+			else
+			{
+				$objdev_controller->setParameters($routes);
+			}
+			$input = json_decode(file_get_contents('php://input'),true);
+			echo ($objdev_controller->setQuery($method,$input));
+		}
+		
+		// Contacting the games table
+		if($routes[0]=="games")
+		{
+			// Checking to see if a game title has been given
 			if(isset($routes[1]))
 			{			
 				if(preg_match('/[a-z]/',$routes[1]))
 				{
+					// Checking to see if a release date has been given
 					if (isset($routes[2]))
 					{
 						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
@@ -62,28 +93,146 @@
 			$input = json_decode(file_get_contents('php://input'),true);
 			echo ($objgame_controller->setQuery($method,$input));
 		}
-		if($routes[0]=="pubinfo")
+		
+		// Contacting the games_systems table
+		if($routes[0]=="games_systems")
 		{
+			// Checking to see if a game title has been given
 			if(isset($routes[1]))
-			{
+			{			
 				if(preg_match('/[a-z]/',$routes[1]))
 				{
+					// Checking to see if a release date has been given
 					if (isset($routes[2]))
 					{
 						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
 						{
-							$objpubinfo_controller->setParameters($routes);
+							
+							// Checking to see if a system has been given
+							if(isset($routes[3])
+							{
+								$objgs_controller->setParameters($routes);
+							}
+							else
+							{
+								$objgs_controller->setParameters($routes);
+							}
 						}
 					}
 					else
 					{
-						$objpubinfo_controller->setParameters($routes);
+						$objgs_controller->setParameters($routes);
 					}
 				}
 			}
 			$input = json_decode(file_get_contents('php://input'),true);
-			echo ($objpubinfo_controller->setQuery($method,$input));
+			echo ($objgs_controller->setQuery($method,$input));
 		}
+		
+		// Contacting the games_regions table
+		if($routes[0]=="games_regions")
+		{
+			// Checking to see if a game title has been given
+			if(isset($routes[1]))
+			{			
+				if(preg_match('/[a-z]/',$routes[1]))
+				{
+					// Checking to see if a release date has been given
+					if (isset($routes[2]))
+					{
+						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
+						{
+							
+							// Checking to see if a region has been given
+							if(isset($routes[3])
+							{
+								if(preg_match('/[a-z]*/', $routes[3]))
+								$objgr_controller->setParameters($routes);
+							}
+							else
+							{
+								$objgr_controller->setParameters($routes);
+							}
+						}
+					}
+					else
+					{
+						$objgr_controller->setParameters($routes);
+					}
+				}
+			}
+			$input = json_decode(file_get_contents('php://input'),true);
+			echo ($objgr_controller->setQuery($method,$input));
+		}
+		
+		
+		// Contacting the games_tags table
+		if($routes[0]=="games_tags")
+		{
+			// Checking to see if a game title has been given
+			if(isset($routes[1]))
+			{			
+				if(preg_match('/[a-z]/',$routes[1]))
+				{
+					// Checking to see if a release date has been given
+					if (isset($routes[2]))
+					{
+						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
+						{
+							
+							// Checking to see if a region has been given
+							if(isset($routes[3])
+							{
+								$objgtags_controller->setParameters($routes);
+							}
+							else
+							{
+								$objgtags_controller->setParameters($routes);
+							}
+						}
+					}
+					else
+					{
+						$objgtags_controller->setParameters($routes);
+					}
+				}
+			}
+			$input = json_decode(file_get_contents('php://input'),true);
+			echo ($objgtags_controller->setQuery($method,$input));
+		}
+		
+		
+		
+		
+		// Contacting publishers table
+		if($routes[0]=='publishers')
+		{
+			// Checking to see if the name of a publisher has been given
+			if (isset(routes[1]))
+			{
+				if(preg_match('/[a-z]/',$routes[1]))
+				{
+					$objpub_controller->setParameters($routes);
+				}
+			}
+			else
+			{
+				$objpub_controller->setParameters($routes);
+			}
+			$input = json_decode(file_get_contents('php://input'),true);
+			echo ($objpub_controller->setQuery($method,$input));
+		}
+		
+		// Contacting the regions table
+		if($routes[0] == 'regions')
+		{
+			objpub_controller->setParameters($routes);
+			$input = json_decode(file_get_contents('php://input'),true);
+			echo ($objpub_controller->setQuery($method,$input));
+		}
+		
+		
+		
 		if($routes[0]=="sales")
 		{
 			if(isset($routes[1]))
