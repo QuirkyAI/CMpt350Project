@@ -102,5 +102,6 @@
 		function remove($id1, $id2){
 			return game::remove($id1, $id2);
 		}
+		}
 	}
 ?>

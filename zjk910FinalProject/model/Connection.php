@@ -17,7 +17,7 @@
 		  return self::$instance;
 		}
 
-		public static function getQuery($method, $table, $key1, $key2, $set){
+		public static function getQuery($method, $table, $key1, $key2, $key3, $set){
 				if (isset($key3))
 				{
 					if ($table=='sales')
@@ -34,6 +34,24 @@
 								break;
 							case 'DELETE':
 								$sql = "delete from `$table` where Game Title=$key1 AND Release Date = $key2 AND Price=$key3"; 
+								break;
+						}
+					}
+					
+					if ($table=='games_tags')
+					{
+						switch ($method) {
+							case 'GET':
+								$sql = "select * from `$table`".($key1?" WHERE Game Title=$key1":'').($key2?" AND Release Date=$key2 AND Tag=$key3":''); //a short form to write an if/else
+								break;
+							case 'PUT':
+								$sql = "update `$table` set $set where Game Title=$key1 and Release Date = $key2 AND Tag=$key3"; 
+								break;
+							case 'POST':
+								$sql = "insert into `$table` set $set"; 
+								break;
+							case 'DELETE':
+								$sql = "delete from `$table` where Game Title=$key1 AND Release Date = $key2 AND Tag=$key3"; 
 								break;
 						}
 					}

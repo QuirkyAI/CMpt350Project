@@ -5,7 +5,7 @@
 	require_once('model/Connection.php');
 	require_once('model/pubinfo.php');
 
-	class pubinfo_controller{
+	class publisher_controller{
 		private $dbInstance;
 		private $sql;
 		private $numberRows=0;

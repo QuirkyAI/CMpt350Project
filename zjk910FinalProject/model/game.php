@@ -6,23 +6,25 @@
 	class game {
 
 		public $game_title;
-		public $release_date;
-		public $description;
+		public $release_year;
+		public $publisher;
+		public $developer;
 
-		public function __construct($par_name, $par_rdate,$par_description) {
+		public function __construct($par_name, $par_rdate,$par_publisher, $par_developer) {
 			$this->game_title = $par_name;
-			$this->release_date = $par_rdate;
-			$this->description = $par_description;
+			$this->release_year = $par_rdate;
+			$this->publisher = $par_publisher;
+			$this->developer = $par_developer;
 		}
 
 		public static function all() {
 			$list = [];
 			$db = Database_Connection::getInstance();
-			$req = $db->query('SELECT * FROM gameinfo');
+			$req = $db->query('SELECT * FROM games');
 
 			
 			foreach($req->fetchAll() as $game) {
-				$list[]= new game($game['game_title'], $game['release_date'],$game['description']);
+				$list[]= new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer']);
 			}
 			return $list;
 		}
@@ -32,19 +34,19 @@
 
 			if (isset($rdate))
 			{
-				$req = $db->prepare('SELECT * FROM gameinfo WHERE game_title = :title AND release_date = :rdate');
+				$req = $db->prepare('SELECT * FROM games WHERE game_title = :title AND release_year = :rdate');
 				$req->execute(array('title' => $title, 'rdate' => $rdate));
 				$game = $req->fetch();
 
-				return new game($game['game_title'], $game['release_date'],$game['description']);
+				return new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer']);
 
 			}
 			else
 			{
-				$req = $db->prepare('SELECT * FROM gameinfo WHERE game_title = :title');
+				$req = $db->prepare('SELECT * FROM games WHERE game_title = :title');
 				$req->execute(array('title' => $title));
 				foreach($req->fetchAll() as $game) {
-					$list[]= new game($game['game_title'], $game['release_date'],$game['description']);
+					$list[]= new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer']);
 				}
 				return $list;
 			}
@@ -53,7 +55,7 @@
 		public function update($set,$key1, $key2){
 			$conn = Database_Connection::getInstance();
 
-			$sql = "update gameinfo set $set where game_title=:title AND release_date=:date";
+			$sql = "update games set $set where game_title=:title AND release_year=:date";
 
 			$stmt = $conn->prepare($sql);
 
@@ -66,7 +68,7 @@
 		public static function create($set){
 			$conn = Database_Connection::getInstance();
 
-			$sql = "insert into gameinfo set $set";
+			$sql = "insert into games set $set";
 
 			$stmt = $conn->prepare($sql);
 
@@ -77,7 +79,7 @@
 
 		public static function remove($title, $rdate){
 			$db = Database_Connection::getInstance();
-			$req = $db->prepare('DELETE FROM gameinfo WHERE game_title = :title AND release_date = :rdate');
+			$req = $db->prepare('DELETE FROM games WHERE game_title = :title AND release_year = :rdate');
 			$req->execute(array('title' => $title, 'rdate' => $rdate));
 
 			return null;

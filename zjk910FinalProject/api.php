@@ -3,12 +3,15 @@
 	// NSID: zjk910
 	// STUDENT NO." 11083636
 
+	require_once('controller/developer_controller.php');
 	require_once('controller/game_controller.php');
 	require_once('controller/gamesystems_controller.php');
 	require_once('controller/gameregions_controller.php');
 	require_once('controller/gametags_controller.php');
-	require_once('controller/pubinfo_controller.php');
+	require_once('controller/publisher_controller.php');
+	require_once('controller/regions_controller.php');
 	require_once('controller/sales_controller.php');
+	require_once('controller/systems_controller.php');
 
 	function getCurrentUri()
 	  	  {
@@ -226,23 +229,26 @@
 		// Contacting the regions table
 		if($routes[0] == 'regions')
 		{
-			objpub_controller->setParameters($routes);
+			objreg_controller->setParameters($routes);
 			$input = json_decode(file_get_contents('php://input'),true);
-			echo ($objpub_controller->setQuery($method,$input));
+			echo ($objreg_controller->setQuery($method,$input));
 		}
 		
 		
-		
+		// Contacting the sales table
 		if($routes[0]=="sales")
 		{
+			// Checking to see if a game title is given
 			if(isset($routes[1]))
 			{
 				if(preg_match('/[a-z]/',$routes[1]))
 				{
+					// Checking to see if a release date is given
 					if (isset($routes[2]))
 					{
 						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
 						{
+							// Checking to see if a price is given
 							if(isset($routes[3]))
 							{
 								if(preg_match('/[0-9]*.[0-9][0-9]/', routes[3]))
@@ -262,5 +268,14 @@
 			$input = json_decode(file_get_contents('php://input'),true);
 			echo ($objsales_controller->setQuery($method,$input));
 		}
+		
+		// Contacting the systems table
+		if($routes[0] == 'systems')
+		{
+			objsystems_controller->setParameters($routes);
+			$input = json_decode(file_get_contents('php://input'),true);
+			echo ($objsystems_controller->setQuery($method,$input));
+		}
+		
 	}
 ?>
