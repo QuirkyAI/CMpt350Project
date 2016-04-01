@@ -55,7 +55,7 @@
 		if($routes[0]=='developers')
 		{
 			// Checking to see if the name of a developer has been given
-			if (isset(routes[1]))
+			if (isset($routes[1]))
 			{
 				if(preg_match('/[a-z]/',$routes[1]))
 				{
@@ -112,7 +112,7 @@
 						{
 							
 							// Checking to see if a system has been given
-							if(isset($routes[3])
+							if(isset($routes[3]))
 							{
 								$objgs_controller->setParameters($routes);
 							}
@@ -147,7 +147,7 @@
 						{
 							
 							// Checking to see if a region has been given
-							if(isset($routes[3])
+							if(isset($routes[3]))
 							{
 								if(preg_match('/[a-z]*/', $routes[3]))
 								$objgr_controller->setParameters($routes);
@@ -184,7 +184,7 @@
 						{
 							
 							// Checking to see if a region has been given
-							if(isset($routes[3])
+							if(isset($routes[3]))
 							{
 								$objgtags_controller->setParameters($routes);
 							}
@@ -211,7 +211,7 @@
 		if($routes[0]=='publishers')
 		{
 			// Checking to see if the name of a publisher has been given
-			if (isset(routes[1]))
+			if (isset($routes[1]))
 			{
 				if(preg_match('/[a-z]/',$routes[1]))
 				{
@@ -229,7 +229,7 @@
 		// Contacting the regions table
 		if($routes[0] == 'regions')
 		{
-			objreg_controller->setParameters($routes);
+			
 			$input = json_decode(file_get_contents('php://input'),true);
 			echo ($objreg_controller->setQuery($method,$input));
 		}
@@ -272,7 +272,7 @@
 		// Contacting the systems table
 		if($routes[0] == 'systems')
 		{
-			objsystems_controller->setParameters($routes);
+			
 			$input = json_decode(file_get_contents('php://input'),true);
 			echo ($objsystems_controller->setQuery($method,$input));
 		}
