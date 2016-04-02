@@ -3,9 +3,9 @@
 	// NSID: zjk910
 	// STUDENT NO." 11083636
 	require_once('model/Connection.php');
-	require_once('model/publisher.php');
+	require_once('model/developer.php');
 
-	class publisher_controller{
+	class developer_controller{
 		private $dbInstance;
 		private $sql;
 		private $numberRows=0;
@@ -81,21 +81,21 @@
 		
 
 		function readAll(){
-			return publisher::all();
+			return developer::all();
 		}
 
 		function find($id1){
-			return publisher::find($id1);
+			return developer::find($id1);
 		}
 
 		function update(){
-			return publisher::update($this->set,$this->key);
+			return developer::update($this->set,$this->key);
 		}
 		function create(){
-			return publisher::create($this->set);
+			return developer::create($this->set);
 		}
 		function remove($id1){
-			return publisher::remove($id1);
+			return developer::remove($id1);
 		}
 	}
 ?>

@@ -3,15 +3,17 @@
 	// NSID: zjk910
 	// STUDENT NO." 11083636
 	require_once('model/Connection.php');
-	require_once('model/publisher.php');
+	require_once('model/games_regions.php');
 
-	class publisher_controller{
+	class gameregions_controller{
 		private $dbInstance;
 		private $sql;
 		private $numberRows=0;
 		private $set;
 		private $table;
 		private $key;
+		private $key2;
+		private $key3;
 
 		public function getNumberRows(){
 			return $this->numberRows;
@@ -27,10 +29,18 @@
 		function setParameters($routes){
 			$this->table = $routes[0];
 			$this->key = $routes[1];
-
-
-	}
-	function setAlterQuery($input){
+			if(isset ($routes[2]))
+			{
+				$this->key2 = $routes[2];
+			}
+			if(isset ($routes[3]))
+			{
+				$this->key3 = $routes[3];
+			}
+		}
+		
+		
+		function setAlterQuery($input){
 			
 			$columns = array_keys($input);
 
@@ -47,6 +57,8 @@
 			  $this->set.=($values[$i]===null?'NULL':'"'.$values[$i].'"');
 			}
 		}
+		
+		
 		/*
 		Setting the correct SQL query dependant on the requested method
 		*/
@@ -54,7 +66,7 @@
 			switch ($method) {
 				case 'GET':
 					if(isset($this->key)){
-						return json_encode($this->find($this->key));
+						return json_encode($this->find($this->key,$this->key2,$this->key3));
 					}else{
 						return json_encode($this->readAll());
 					}
@@ -62,7 +74,7 @@
 				case 'PUT':
 					$this->setAlterQuery($input);
 					$updated_rows=$this->update();
-					if($updated_rows>0){return json_encode($this->find($this->key));}
+					if($updated_rows>0){return json_encode($this->find($this->key,$this->key2,$this->key3));}
 					return $updated_rows;
 					break;
 				case 'POST':
@@ -72,8 +84,8 @@
 					return $lastInserted;
 					break;
 				case 'DELETE':
-					if(isset($this->key)){
-						return json_encode($this->remove($this->key));
+					if(isset($this->key) && isset($this->key2) && isset($this->key3)){
+						return json_encode($this->remove($this->key,$this->key2,$this->key3));
 					}
 					break;
 			}
@@ -81,21 +93,21 @@
 		
 
 		function readAll(){
-			return publisher::all();
+			return games_regions::all();
 		}
 
-		function find($id1){
-			return publisher::find($id1);
+		function find($id1, $id2, $id3){
+			return games_regions::find($id1, $id2, $id3);
 		}
 
 		function update(){
-			return publisher::update($this->set,$this->key);
+			return games_regions::update($this->set,$this->key,$this->key2, $this->key3);
 		}
 		function create(){
-			return publisher::create($this->set);
+			return games_regions::create($this->set);
 		}
-		function remove($id1){
-			return publisher::remove($id1);
+		function remove($id1, $id2, $id3){
+			return games_regions::remove($id1, $id2, $id3);
 		}
 	}
 ?>

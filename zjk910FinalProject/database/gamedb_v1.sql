@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2016 at 06:30 AM
+-- Generation Time: Apr 02, 2016 at 04:07 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.15
 
@@ -43,7 +43,8 @@ CREATE TABLE `games` (
   `game_title` varchar(120) NOT NULL,
   `release_year` int(11) NOT NULL,
   `publisher` varchar(120) NOT NULL,
-  `developer` varchar(120) NOT NULL
+  `developer` varchar(120) NOT NULL,
+  `budget` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

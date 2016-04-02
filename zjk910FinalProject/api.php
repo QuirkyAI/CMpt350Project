@@ -51,6 +51,7 @@
 	 
 	  if (preg_match('/[a-z]/',$routes[0]))
 	  {
+		  
 		// Contacting developers table
 		if($routes[0]=='developers')
 		{
@@ -253,10 +254,28 @@
 							{
 								if(preg_match('/[0-9]*.[0-9][0-9]/', routes[3]))
 								{
-									$objsales_controller->setParameters($routes);
+									if(isset($routes[4]))
+									{
+										if(isset($routes[5]))
+										{
+											$objsales_controller->setParameters($routes);
+										}
+										else
+										{
+											$objsales_controller->setParameters($routes);
+										}
+									}
+									else
+									{
+										$objsales_controller->setParameters($routes);
+									}
+									
 								}
 							}
-							$objsales_controller->setParameters($routes);				
+							else
+							{
+								$objsales_controller->setParameters($routes);	
+							}	
 						}
 					}
 					else
@@ -274,7 +293,7 @@
 		{
 			
 			$input = json_decode(file_get_contents('php://input'),true);
-			echo ($objsystems_controller->setQuery($method,$input));
+			echo ($objsys_controller->setQuery($method,$input));
 		}
 		
 	}

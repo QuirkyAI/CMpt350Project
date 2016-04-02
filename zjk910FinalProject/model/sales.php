@@ -6,51 +6,90 @@
 	class sales {
 
 		public $game_title;
-		public $release_date;
+		public $release_year;
 		public $price;
+		public $sys;
 		public $units;
+		public $last_update;
+		public $org;
+		public $reg;
 
-		public function __construct($par_name, $par_rdate,$par_price, $par_units) {
+		public function __construct($par_name, $par_rdate,$par_price, $par_system, $par_units, $par_update, $par_org, $par_reg) {
 			$this->game_title = $par_name;
-			$this->release_date = $par_rdate;
-			$this->$price = $par_price;
-			$this->$units = $par_units;
+			$this->release_year = $par_rdate;
+			$this->price = $par_price;
+			$this->sys = $par_system;
+			$this->units = $par_units;
+			$this->last_update = $par_update;
+			$this->org = $par_org;
+			$this->reg = $par_reg;
 		}
 
 		public static function all() {
 			$list = [];
 			$db = Database_Connection::getInstance();
-			$req = $db->query('SELECT * FROM salesinfo');
+			$req = $db->query('SELECT * FROM sales');
 
 			
 			foreach($req->fetchAll() as $sales) {
-				$list[]= new sales($sales['game_title'], $sales['release_date'], $sales['price'], $sales['units']);
+				$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
 			}
 			return $list;
 		}
 
-		public static function find($title, $rdate, $price) {
+		public static function find($title, $rdate, $price, $sys, $org) {
 			$db = Database_Connection::getInstance();
 
 			if (isset($rdate))
 			{
 				if(isset($price))
 				{
-					$req = $db->prepare('SELECT * FROM salesinfo WHERE game_title = :title AND release_date = :rdate AND price = :price');
+					if(isset($sys))
+					{
+						if(isset($org))
+						{
+							$req = $db->prepare('SELECT * FROM sales WHERE game_title = :title AND release_year = :rdate AND price = :price AND system = :sys AND organization = :org');
 					
-					$req->execute(array('title' => $title, 'rdate' => $rdate, 'price' => $price));
-					$sale = $req->fetch();
-
-					return new sale($sale['sale_title'], $sale['release_date'], $sale['price'], $sale['unit']);
+							$req->execute(array('title' => $title, 'rdate' => $rdate, 'price' => $price, 'sys' => $sys, 'org' => $org));
+							
+							$sales = $req->fetch();
+							return new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
+						}
+						else
+						{
+							$req = $db->prepare('SELECT * FROM sales WHERE game_title = :title AND release_year = :rdate AND price = :price AND system = :sys');
+					
+							$req->execute(array('title' => $title, 'rdate' => $rdate, 'price' => $price, 'sys' => $sys));
+							
+							$sales = $req->fetch();
+							foreach($req->fetchAll() as $sale) {
+								$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
+							}
+							return $list;
+						}
+					}
+					else
+					{
+						$req = $db->prepare('SELECT * FROM sales WHERE game_title = :title AND release_year = :rdate AND price = :price');
+						
+						$req->execute(array('title' => $title, 'rdate' => $rdate, 'price' => $price));
+						$sales = $req->fetch();
+						
+						foreach($req->fetchAll() as $sale) {
+							$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
+						}
+						return $list;
+					}
+					
 				}
 				else
 				{
-					$req = $db->prepare('SELECT * FROM salesinfo WHERE game_title = :title AND release_date = :rdate');
+					$req = $db->prepare('SELECT * FROM sales WHERE game_title = :title AND release_year = :rdate');
 					
 					$req->execute(array('title' => $title, 'rdate' => $rdate));
-					$sale = $req->fetch();
+					$sales = $req->fetch();
 					foreach($req->fetchAll() as $sale) {
-						$list[]= new sale($sale['sale_title'], $sale['release_date'], $sale['price'], $sale['unit']);
+						$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
 					}
 					return $list;
 				}
@@ -60,23 +99,23 @@
 			}
 			else
 			{
-				$req = $db->prepare('SELECT * FROM salesinfo WHERE game_title = :title');
+				$req = $db->prepare('SELECT * FROM sales WHERE game_title = :title');
 				$req->execute(array('title' => $title));
 				foreach($req->fetchAll() as $sale) {
-					$list[]= new sale($sale['sale_title'], $sale['release_date'], $sale['price'], $sale['unit']);
+					$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
 				}
 				return $list;
 			}
 		}
 
-		public function update($set, $key1, $key2, $key3){
+		public function update($set, $key1, $key2, $key3, $key4, $key5){
 			$conn = Database_Connection::getInstance();
 
-			$sql = "update salesinfo set $set where game_title=:title AND release_date=:date AND price=:price";
+			$sql = "update sales set $set where game_title=:title AND release_year=:date AND price=:price AND system = :sys AND organization = :org";
 
 			$stmt = $conn->prepare($sql);
 
-			$stmt->execute(array('title' => $key1, 'date' => $key2, 'price' => $key3));
+			$stmt->execute(array('title' => $key1, 'date' => $key2, 'price' => $key3, 'sys' => $key4, 'org' => $key5));
 
 			return $stmt->rowCount();
 		}
@@ -85,7 +124,7 @@
 		public static function create($set){
 			$conn = Database_Connection::getInstance();
 
-			$sql = "insert into salesinfo set $set";
+			$sql = "insert into sales set $set";
 
 			$stmt = $conn->prepare($sql);
 
@@ -94,10 +133,10 @@
 			return $conn->lastInsertId();
 		}
 
-		public static function remove($title, $rdate){
+		public static function remove($title, $rdate, $price, $system, $organization){
 			$db = Database_Connection::getInstance();
-			$req = $db->prepare('DELETE FROM salesinfo WHERE game_title = :title AND release_date = :rdate');
-			$req->execute(array('title' => $title, 'rdate' => $rdate));
+			$req = $db->prepare('DELETE FROM sales WHERE game_title = :title AND release_year = :rdate AND price = :price AND system = :sys AND organization = :org');
+			$req->execute(array('title' => $title, 'rdate' => $rdate, 'price' => $price, 'sys' => $system, 'org' => $organization));
 
 			return null;
 		}

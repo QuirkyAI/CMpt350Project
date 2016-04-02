@@ -3,15 +3,14 @@
 	// NSID: zjk910
 	// STUDENT NO." 11083636
 	require_once('model/Connection.php');
-	require_once('model/publisher.php');
+	require_once('model/region.php');
 
-	class publisher_controller{
+	class regions_controller{
 		private $dbInstance;
 		private $sql;
 		private $numberRows=0;
 		private $set;
 		private $table;
-		private $key;
 
 		public function getNumberRows(){
 			return $this->numberRows;
@@ -26,7 +25,6 @@
 
 		function setParameters($routes){
 			$this->table = $routes[0];
-			$this->key = $routes[1];
 
 
 	}
@@ -53,49 +51,23 @@
 		function setQuery($method,$input){
 			switch ($method) {
 				case 'GET':
-					if(isset($this->key)){
-						return json_encode($this->find($this->key));
-					}else{
-						return json_encode($this->readAll());
-					}
+					return json_encode($this->readAll());
 					break;
 				case 'PUT':
-					$this->setAlterQuery($input);
-					$updated_rows=$this->update();
-					if($updated_rows>0){return json_encode($this->find($this->key));}
-					return $updated_rows;
+					return null;
 					break;
 				case 'POST':
-					$this->setAlterQuery($input);
-					$lastInserted=$this->create();
-					if(isset($lastInserted)){return json_encode($this->find($lastInserted));}
-					return $lastInserted;
+					return null;
 					break;
 				case 'DELETE':
-					if(isset($this->key)){
-						return json_encode($this->remove($this->key));
-					}
+					return null;
 					break;
 			}
 		}
 		
 
 		function readAll(){
-			return publisher::all();
-		}
-
-		function find($id1){
-			return publisher::find($id1);
-		}
-
-		function update(){
-			return publisher::update($this->set,$this->key);
-		}
-		function create(){
-			return publisher::create($this->set);
-		}
-		function remove($id1){
-			return publisher::remove($id1);
+			return region::all();
 		}
 	}
 ?>

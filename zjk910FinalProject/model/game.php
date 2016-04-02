@@ -9,12 +9,14 @@
 		public $release_year;
 		public $publisher;
 		public $developer;
+		public $budget;
 
-		public function __construct($par_name, $par_rdate,$par_publisher, $par_developer) {
+		public function __construct($par_name, $par_rdate,$par_publisher, $par_developer, $par_bud) {
 			$this->game_title = $par_name;
 			$this->release_year = $par_rdate;
 			$this->publisher = $par_publisher;
 			$this->developer = $par_developer;
+			$this->budget = $par_bud;
 		}
 
 		public static function all() {
@@ -24,7 +26,7 @@
 
 			
 			foreach($req->fetchAll() as $game) {
-				$list[]= new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer']);
+				$list[]= new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer'], $game['budget']);
 			}
 			return $list;
 		}
@@ -38,7 +40,7 @@
 				$req->execute(array('title' => $title, 'rdate' => $rdate));
 				$game = $req->fetch();
 
-				return new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer']);
+				return new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer'], $game['budget']);
 
 			}
 			else
@@ -46,7 +48,7 @@
 				$req = $db->prepare('SELECT * FROM games WHERE game_title = :title');
 				$req->execute(array('title' => $title));
 				foreach($req->fetchAll() as $game) {
-					$list[]= new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer']);
+					$list[]= new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer'], $game['budget']);
 				}
 				return $list;
 			}

@@ -14,6 +14,8 @@
 		private $key;
 		private $key2;
 		private $key3;
+		private $key4;
+		private $key5;
 
 		public function getNumberRows(){
 			return $this->numberRows;
@@ -36,6 +38,14 @@
 			if(isset ($routes[3]))
 			{
 				$this->key3 = $routes[3];
+			}
+			if(isset ($routes[4]))
+			{
+				$this->key4 = $routes[4];
+			}
+			if(isset ($routes[5]))
+			{
+				$this->key5 = $routes[5];
 			}
 		}
 		
@@ -66,7 +76,7 @@
 			switch ($method) {
 				case 'GET':
 					if(isset($this->key)){
-						return json_encode($this->find($this->key,$this->key2));
+						return json_encode($this->find($this->key,$this->key2,$this->key3, $this->key4, $this->key5));
 					}else{
 						return json_encode($this->readAll());
 					}
@@ -74,7 +84,7 @@
 				case 'PUT':
 					$this->setAlterQuery($input);
 					$updated_rows=$this->update();
-					if($updated_rows>0){return json_encode($this->find($this->key,$this->key2));}
+					if($updated_rows>0){return json_encode($this->key,$this->key2,$this->key3, $this->key4, $this->key5);}
 					return $updated_rows;
 					break;
 				case 'POST':
@@ -84,8 +94,8 @@
 					return $lastInserted;
 					break;
 				case 'DELETE':
-					if(isset($this->key) && isset($this->key2)){
-						return json_encode($this->remove($this->key,$this->key2));
+					if(isset($this->key) && isset($this->key2) && isset($this->key3) && isset($this->key4) && isset($this->key5)){
+						return json_encode($this->remove($this->key,$this->key2,$this->key3,$this->key4,$this->key5));
 					}
 					break;
 			}
@@ -101,13 +111,13 @@
 		}
 
 		function update(){
-			return sales::update($this->set,$this->key,$this->key2, $this->key3);
+			return sales::update($this->key,$this->key2,$this->key3, $this->key4, $this->key5);
 		}
 		function create(){
 			return sales::create($this->set);
 		}
-		function remove($id1, $id2){
-			return sales::remove($id1, $id2);
+		function remove($id1, $id2, $id3, $id4, $id5){
+			return sales::remove($id1, $id2, $id3, $id4, $id5);
 		}
 	}
 ?>

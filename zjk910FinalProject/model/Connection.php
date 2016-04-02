@@ -38,7 +38,25 @@
 						}
 					}
 					
-					if ($table=='games_tags')
+					elseif ($table=='games_regions')
+					{
+						switch ($method) {
+							case 'GET':
+								$sql = "select * from `$table`".($key1?" WHERE Game Title=$key1":'').($key2?" AND Release Date=$key2 AND Region=$key3":''); //a short form to write an if/else
+								break;
+							case 'PUT':
+								$sql = "update `$table` set $set where Game Title=$key1 and Release Date = $key2 AND Region=$key3"; 
+								break;
+							case 'POST':
+								$sql = "insert into `$table` set $set"; 
+								break;
+							case 'DELETE':
+								$sql = "delete from `$table` where Game Title=$key1 AND Release Date = $key2 AND Region=$key3"; 
+								break;
+						}
+					}
+					
+					elseif ($table=='games_tags')
 					{
 						switch ($method) {
 							case 'GET':
@@ -58,19 +76,74 @@
 				}
 				else
 				{
-					switch ($method) {
-						case 'GET':
-							$sql = "select * from `$table`".($key1?" WHERE Game Title=$key1":'').($key2?" AND Release Date=$key2":''); //a short form to write an if/else
-							break;
-						case 'PUT':
-							$sql = "update `$table` set $set where Game Title=$key1 and Release Date = $key2"; 
-							break;
-						case 'POST':
-							$sql = "insert into `$table` set $set"; 
-							break;
-						case 'DELETE':
-							$sql = "delete from `$table` where Game Title=$key1 and Release Date = $key2"; 
-							break;
+					if ($table=='publisher')
+					{
+						switch ($method) {
+							case 'GET':
+								$sql = "select * from `$table`".($key1?" WHERE publisher=$key1":'');
+								break;
+							case 'PUT':
+								$sql = "update `$table` set $set where publisher=$key1"; 
+								break;
+							case 'POST':
+								$sql = "insert into `$table` set $set"; 
+								break;
+							case 'DELETE':
+								$sql = "delete from `$table` where publisher=$key1"; 
+								break;
+						}
+					}
+					
+					elseif ($table=='developer')
+					{
+						switch ($method) {
+							case 'GET':
+								$sql = "select * from `$table`".($key1?" WHERE developer=$key1":'');
+								break;
+							case 'PUT':
+								$sql = "update `$table` set $set where developer=$key1"; 
+								break;
+							case 'POST':
+								$sql = "insert into `$table` set $set"; 
+								break;
+							case 'DELETE':
+								$sql = "delete from `$table` where developer=$key1"; 
+								break;
+						}
+					}
+					
+					elseif ($table=='region')
+					{
+						switch ($method) {
+							case 'GET':
+								$sql = "select * from `$table`";
+								break;
+						}
+					}
+					elseif ($table=='systems')
+					{
+						switch ($method) {
+							case 'GET':
+								$sql = "select * from `$table`";
+								break;
+						}
+					}
+					else
+					{
+						switch ($method) {
+							case 'GET':
+								$sql = "select * from `$table`".($key1?" WHERE Game Title=$key1":'').($key2?" AND Release Date=$key2":''); //a short form to write an if/else
+								break;
+							case 'PUT':
+								$sql = "update `$table` set $set where Game Title=$key1 and Release Date = $key2"; 
+								break;
+							case 'POST':
+								$sql = "insert into `$table` set $set"; 
+								break;
+							case 'DELETE':
+								$sql = "delete from `$table` where Game Title=$key1 and Release Date = $key2"; 
+								break;
+						}
 					}
 				}
 			  
