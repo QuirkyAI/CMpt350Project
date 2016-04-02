@@ -3,7 +3,7 @@
 	// NSID: zjk910
 	// STUDENT NO." 11083636
 	require_once('model/Connection.php');
-	require_once('model/games_tags.php');
+	require_once('model/game_tags.php');
 
 	class gametags_controller{
 		private $dbInstance;
@@ -93,21 +93,21 @@
 		
 
 		function readAll(){
-			return games_tags::all();
+			return game_tags::all();
 		}
 
 		function find($id1, $id2, $id3){
-			return games_tags::find($id1, $id2, $id3);
+			return game_tags::find($id1, $id2, $id3);
 		}
 
 		function update(){
-			return games_tags::update($this->set,$this->key,$this->key2, $this->key3);
+			return game_tags::update($this->set,$this->key,$this->key2, $this->key3);
 		}
 		function create(){
-			return games_tags::create($this->set);
+			return game_tags::create($this->set);
 		}
 		function remove($id1, $id2, $id3){
-			return games_tags::remove($id1, $id2, $id3);
+			return game_tags::remove($id1, $id2, $id3);
 		}
 	}
 ?>

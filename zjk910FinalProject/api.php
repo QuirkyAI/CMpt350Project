@@ -134,7 +134,7 @@
 		}
 		
 		// Contacting the games_regions table
-		if($routes[0]=="games_regions")
+		if($routes[0]=="game_regions")
 		{
 			// Checking to see if a game title has been given
 			if(isset($routes[1]))
@@ -171,7 +171,7 @@
 		
 		
 		// Contacting the games_tags table
-		if($routes[0]=="games_tags")
+		if($routes[0]=="game_tags")
 		{
 			// Checking to see if a game title has been given
 			if(isset($routes[1]))

@@ -3,7 +3,7 @@
 	// NSID: zjk910
 	// STUDENT NO." 11083636
 	require_once('model/Connection.php');
-	require_once('model/games_regions.php');
+	require_once('model/game_regions.php');
 
 	class gameregions_controller{
 		private $dbInstance;
@@ -93,21 +93,21 @@
 		
 
 		function readAll(){
-			return games_regions::all();
+			return game_regions::all();
 		}
 
 		function find($id1, $id2, $id3){
-			return games_regions::find($id1, $id2, $id3);
+			return game_regions::find($id1, $id2, $id3);
 		}
 
 		function update(){
-			return games_regions::update($this->set,$this->key,$this->key2, $this->key3);
+			return game_regions::update($this->set,$this->key,$this->key2, $this->key3);
 		}
 		function create(){
-			return games_regions::create($this->set);
+			return game_regions::create($this->set);
 		}
 		function remove($id1, $id2, $id3){
-			return games_regions::remove($id1, $id2, $id3);
+			return game_regions::remove($id1, $id2, $id3);
 		}
 	}
 ?>

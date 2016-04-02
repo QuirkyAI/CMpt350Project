@@ -38,7 +38,7 @@
 						}
 					}
 					
-					elseif ($table=='games_regions')
+					elseif ($table=='game_regions')
 					{
 						switch ($method) {
 							case 'GET':
@@ -56,7 +56,7 @@
 						}
 					}
 					
-					elseif ($table=='games_tags')
+					elseif ($table=='game_tags')
 					{
 						switch ($method) {
 							case 'GET':

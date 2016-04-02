@@ -3,7 +3,7 @@
 	// NSID: zjk910
 	// STUDENT NO." 11083636
 	require_once('Connection.php');
-	class games_regions {
+	class game_regions {
 
 		public $game_title;
 		public $release_year;
@@ -18,11 +18,11 @@
 		public static function all() {
 			$list = [];
 			$db = Database_Connection::getInstance();
-			$req = $db->query('SELECT * FROM games_regions');
+			$req = $db->query('SELECT * FROM game_regions');
 
 			
-			foreach($req->fetchAll() as $games_regions) {
-				$list[]= new $games_regions($games_regions['game_title'], $games_regions['release_year'],  $games_regions['region']);
+			foreach($req->fetchAll() as $game_regions) {
+				$list[]= new $game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
 			}
 			return $list;
 		}
@@ -34,21 +34,21 @@
 			{
 				if(isset($price))
 				{
-					$req = $db->prepare('SELECT * FROM games_regions WHERE game_title = :title AND release_year = :rdate AND region = :reg');
+					$req = $db->prepare('SELECT * FROM game_regions WHERE game_title = :title AND release_year = :rdate AND region = :reg');
 					
 					$req->execute(array('title' => $title, 'rdate' => $rdate, 'reg' => $reg));
-					$games_regions = $req->fetch();
+					$game_regions = $req->fetch();
 
-					return new $games_regions($games_regions['game_title'], $games_regions['release_year'],  $games_regions['region']);
+					return new $game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
 				}
 				else
 				{
-					$req = $db->prepare('SELECT * FROM games_regions WHERE game_title = :title AND release_year = :rdate');
+					$req = $db->prepare('SELECT * FROM game_regions WHERE game_title = :title AND release_year = :rdate');
 					
 					$req->execute(array('title' => $title, 'rdate' => $rdate));
-					$games_regions = $req->fetch();
-					foreach($req->fetchAll() as $games_regions) {
-						$list[]= new $games_regions($games_regions['game_title'], $games_regions['release_year'],  $games_regions['region']);
+					$game_regions = $req->fetch();
+					foreach($req->fetchAll() as $game_regions) {
+						$list[]= new $game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
 					}
 					return $list;
 				}
@@ -58,10 +58,10 @@
 			}
 			else
 			{
-				$req = $db->prepare('SELECT * FROM games_regions WHERE game_title = :title');
+				$req = $db->prepare('SELECT * FROM game_regions WHERE game_title = :title');
 				$req->execute(array('title' => $title));
-				foreach($req->fetchAll() as $games_regions) {
-					$list[]= new $games_regions($games_regions['game_title'], $games_regions['release_year'],  $games_regions['region']);
+				foreach($req->fetchAll() as $game_regions) {
+					$list[]= new $game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
 				}
 				return $list;
 			}
@@ -70,7 +70,7 @@
 		public function update($set, $key1, $key2, $key3){
 			$conn = Database_Connection::getInstance();
 
-			$sql = "update games_regions set $set where game_title=:title AND release_year=:date AND reg=:reg";
+			$sql = "update game_regions set $set where game_title=:title AND release_year=:date AND reg=:reg";
 
 			$stmt = $conn->prepare($sql);
 
@@ -83,7 +83,7 @@
 		public static function create($set){
 			$conn = Database_Connection::getInstance();
 
-			$sql = "insert into games_regions set $set";
+			$sql = "insert into game_regions set $set";
 
 			$stmt = $conn->prepare($sql);
 
@@ -94,7 +94,7 @@
 
 		public static function remove($title, $rdate, $region){
 			$db = Database_Connection::getInstance();
-			$req = $db->prepare('DELETE FROM games_regions WHERE game_title = :title AND release_year = :rdate AND region = :reg');
+			$req = $db->prepare('DELETE FROM game_regions WHERE game_title = :title AND release_year = :rdate AND region = :reg');
 			$req->execute(array('title' => $title, 'rdate' => $rdate, 'reg' => $region));
 
 			return null;

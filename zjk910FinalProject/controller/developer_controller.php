@@ -26,7 +26,10 @@
 
 		function setParameters($routes){
 			$this->table = $routes[0];
-			$this->key = $routes[1];
+			if(isset($routes[1]))
+			{
+				$this->key = $routes[1];
+			}
 
 
 	}
