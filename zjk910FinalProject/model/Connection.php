@@ -112,6 +112,18 @@
 						}
 					}
 					
+					elseif ($table=='users')
+					{
+						switch ($method) {
+							case 'GET':
+								$sql = "select * from `$table`".($key1?" WHERE email=$key1":'');
+								break;
+							case 'POST':
+								$sql = "insert into `$table` set $set"; 
+								break;
+						}
+					}
+					
 					elseif ($table=='region')
 					{
 						switch ($method) {

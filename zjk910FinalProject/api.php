@@ -12,6 +12,7 @@
 	require_once('controller/regions_controller.php');
 	require_once('controller/sales_controller.php');
 	require_once('controller/systems_controller.php');
+	require_once('controller/users_controller.php');
 
 	function getCurrentUri()
 	  	  {
@@ -46,6 +47,7 @@
 	  $objreg_controller = new regions_controller();
 	  $objsales_controller = new sales_controller();
 	  $objsys_controller = new systems_controller();
+	  $objuser_controller = new users_controller();
 	  $method = $_SERVER['REQUEST_METHOD'];
 
 	 
@@ -294,6 +296,15 @@
 			
 			$input = json_decode(file_get_contents('php://input'),true);
 			echo ($objsys_controller->setQuery($method,$input));
+		}
+		if($routes[0] == 'users')
+		{
+			if(isset($routes[1]) && isset($routes[2]))
+			{
+				$objuser_controller->setParameters($routes);
+				$input = json_decode(file_get_contents('php://input'),true);
+				echo ($objuser_controller->setQuery($method,$input));
+			}
 		}
 		
 	}
