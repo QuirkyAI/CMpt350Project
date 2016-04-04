@@ -1,0 +1,83 @@
+-----------------------------
+: CMPT 350 Web Project Texts:
+-----------------------------
+
+
+
+-------------
+: HOME PAGE :
+-------------
+
+
+<HEADER> You Are Currently Logged In From </HEADER>
+<MAP>
+
+We don't store this data, this is just to ensure our website is correctly working. Please contact the web administrator if you are displaying incorrect location data, as it may be an indicator of the site being compromised.
+
+
+<HEADER> Hello and welcome! </HEADER>
+
+You are currently viewing version 1.0 of our Game Sales Database project. This version was deployed on April 3rd, 2016.
+
+The purpose of this application is to store data to track video game sales. Currently this website's purpose is only to store this information to assist analysts and enthusiasts in researching the sales of video games. You can contact the website administrator (email at the bottom) if you wish to gain further access to the data for school projects, marketing estimates, or any other purpose.
+
+
+<HEADER> The Purpose for this Site </HEADER>
+
+To many people, it may seem odd or useless to track video game purchases across the globe. I mean, it's just video games, right? And the companies are pretty upfront about their sales, right? And these companies are in business to make money, so of course they'll make the best decisions about their products, right? And as a company serving gamers, you would think they have their finger on the pulse of the gaming community across the globe?
+
+Right?
+
+Well, the answers to most of those questions is a firm "Nope" in our books.
+
+To start, while video games are mainly used for enterainment purposes, we believe that there is a stronger power that video games have that makes them very different from other entertainment media: Agency. When you play a game, everything that happens during gameplay is influenced by you or up to you to handle. This leads to stronger connection and engagement with the work because of the agency afforded to the player. Playing Silent Hill 2 is considered so terrifying because it is up to the player to keep the protagonist alive throughout the horrors of the game. Playing Call of Duty is so exciting because it is up to the player to fight and win in the events the game throws at them. This ability to engage a player is can be far stronger than in other media, such as film or books, and this engagement has the potential to create advances in physical rehabilitation, education techniques, and training simulations. So to us, video games represent a potential gold mine of new techniques to help us grow as individuals in a healthier environment.
+
+As for the company sales, not so much. Mainly we only know what video game publishers announce. Accounting records (such as income statements, balance sheets, etc.) only need to show these amounts in total value, not the number of units sold. Even if these are available from the publisher, gaining up-to-date information is incredibly value for investors, especially ones with interests in particular regions. And without some deep research it can be difficult to find out where popular games sell, what kinds of games sell, or the probability of financial success from both publishers and developers (based on historical data). So, this website is to keep track of the sales from individual retailers and distributors to help keep track of this important marketing data.
+
+Third, it has been seen time and time again that while these publishers are in business to make money, they are becoming more out-of-touch with their audience as the years drag on. Famous publisher Electronic Arts has made several odd decisions in the past, such as inputting microstransactions and free-to-play business models into $60 single-player games on release (such as Dragon Age: Inquisition, and Dead Space 3). Many triple-A publishers such as Electronic Arts (Capcom, SEGA, 2K, Ubisoft) have been having issues with their demographic recently, with critics giving lower and lower ratings in longstanding franchises as publishers continue to add sketchier business models to their products. This website will hopefully allow for another method in which to corroborate their anouncements.
+
+As for keeping their finger on the pulse of the gaming community, it appears that this is not the case. The Dead Space franchise (a survival-horror game with some third-person shooting mechanics about fighting zombies in space) effectively died with Dead Space 3, the third game in franchise. There are many possible reasons for this, such as the added microstransactions into a $60 product (it was one of the first to do this), the transistion from a survial horror game to cooperative shooter (alienating fans of the franchise in favor of other demographics with less interest), and the unachievable sales target of 5,000,000 units (the other two games sold around half that each). Resident Evil 6 was a critical failure. Games in long-standing franchises are consistently compared to their priors, and often found lacking. Even long-standing franchises such as the EA Sports games appear to be taking out features rather than adding any in.
+
+So, to see the effects of these products on the larger market, and to see the financial success or failure of these products, we created this application to hopefully allow users to keep a closer eye on the workings of the games industry. We don't expect you to completely trust our data - our users can add and update a lot of content - but we hope that it gives you a better view of the video game industry and the financial working of the gaming community. If we can encourage better behavior from just one publisher, and improve their consumer relations, we will consider our website a success.
+
+
+
+-----------
+: ADD PAGE:
+-----------
+
+<HEADER> DATABASE ADDITION </HEADER>
+
+Okay, so there is something you need to know before you get started adding something in. First, please do not use spaces in game titles or developer names, as this leads to a bug with the database access that we are still working on. Second, you need to know that the publisher and developer must be added in before a game can be added. Third, games are recognizd by their release year and title, so make sure you have those down when referencing a game. Finally, you can only insert sales data assuming that either the price, system, or organization is different from a previous entry in our database.
+
+If you follow these steps you should have no trouble with video games in our database:
+	1) Insert Publisher and Developer
+	2) Insert Game
+	3) Insert Game region, systems, and tags
+	4) Insert Sales data
+	
+And with that you should be good to go. Please keep your data as accurate as possible.
+
+
+
+------------
+: READ PAGE:
+------------
+
+Fill the forms below to read from the database!
+
+
+
+---------------
+: UPDATE PAGE :
+---------------
+
+Fill out the forms below to update data from our database
+
+
+
+---------------
+: DELETE PAGE :
+---------------
+
+Please fill out the forms below to delete data from the database. Please be careful though, and ensure that your data is accurate or that it requires deletion.
