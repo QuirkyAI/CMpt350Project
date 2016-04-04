@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  transition: all linear 0.5s;
+  background-color: white;
+}
+
+
+.ng-hide {
+  height: 0;
+}
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src= "postController.js"></script>
+</head>
+<body>
+
+
+<div ng-app="postApp" ng-controller='postController'>
+
+	<!-- when the add game button is cliicked it will call the function form slide to unhide/rehide the form that adds games to the database-->
+	<input type="submit" value="Add Game" ng-click=" $formSlide('gameForm')"/>
+	<!-- this is the form for putting a new game in the system -->
+	<form ng-hide="myCheck" id="gameForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="gameTitle">
+			</div>
+			<label >Release year</label>
+			<div >
+				<input type="number" id ="gameReleaseYear">
+			</div>
+			<label  >Publisher</label>
+			<div >
+				<input type="text" id ="gamePublisher">
+			</div>
+			<label >Developer</label>
+			<div >
+				<input type="text" id ="gameDeveloper">
+			</div>
+			<label >Budget</label>
+			<div >
+				<input type="number" id ="gameBudget">
+			</div>
+			<input type="submit" value="Submit" onclick="logGame()"/>
+		</div>
+	</form>
+
+	<!-- this is the form for associating a game with a system-->
+	<br>
+	</br>
+	<input type="submit" value="Add Game to System" onclick="formSlide('gameSystemsForm')"/>
+	<form ng-hide="myCheck" id="gameSystemsForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="gameSystemGameTitle">
+			</div>
+			<label  >Release year</label>
+			<div >
+				<input type="number" id ="gameSystemGameReleaseYear">
+			</div>
+			<label  >Game System</label>
+			<div >
+				<input type="text" id ="gameSystem">
+			</div>
+			<input type="submit" value="Submit" onclick="logGameSystemGame()"/>
+		</div>
+	</form>
+	<br>
+	</br>
+	<!-- this is the form for associating a game with a region-->
+
+	<input type="submit" value="Add Game to Region" onclick="formSlide('gameRegionForm')"/>
+	<form ng-hide="myCheck" id="gameRegionForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="gameRegionGameTitle">
+			</div>
+			<label  >Release year</label>
+			<div >
+				<input type="number" id ="gameRegionGameReleaseYear">
+			</div>
+			<label  >Game Region</label>
+			<div >
+				<input type="text" id ="gameRegion">
+			</div>
+			<input type="submit" value="Submit" onclick="logGameRegionGame()"/>
+		</div>
+	</form>
+	<br>
+	</br>
+	<!-- this is the form for associating a game with a tag-->
+
+	<input type="submit" value="Add Tag To Game" onclick="formSlide('gameTagForm')"/>
+	<form ng-hide="myCheck" id="gameTagForm" hidden>
+		<div >
+			<label >Title</label>
+			<div >
+				<input type="text" id ="gameTagGameTitle">
+			</div>
+			<label >Release year</label>
+			<div >
+				<input type="number" id ="gameTagGameReleaseYear">
+			</div>
+			<label  >Game Tag</label>
+			<div >
+				<input type="text" id ="gameTag">
+			</div>
+			<input type="submit" value="Submit" onclick="logGameTag()"/>
+		</div>
+	</form>
+	<br>
+	</br>
+	<input type="submit" value="Add Publisher" onclick="formSlide('publisherForm')"/>
+	<form ng-hide="myCheck" id="publisherForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="publisherName">
+			</div>
+			<label  >Publisher Founding Year</label>
+			<div >
+				<input type="number" id ="publisherFoundingYear">
+			</div>
+			<label  >Publisher Final Year ( 0 if they still exist) </label>
+			<div >
+				<input type="number" id ="publisherFinalYear">
+			</div>
+			<label  >Publisher HQ Region</label>
+			<div >
+				<input type="text" id ="publisherHQ">
+			</div>
+			<input type="submit" value="Submit" onclick="logPublisher()"/>
+		</div>
+	</form>
+
+	<br>
+	</br>
+	<input type="submit" value="Add Developer" onclick="formSlide('developerForm')"/>
+	<form ng-hide="myCheck" id="developerForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="developerName">
+			</div>
+			<label  >Developer Founding Year</label>
+			<div >
+				<input type="number" id ="developerFoundingYear">
+			</div>
+			<label  >Developer Final Year ( 0 if they still exist) </label>
+			<div >
+				<input type="number" id ="developerFinalYear">
+			</div>
+			<label  >Developer HQ Region</label>
+			<div >
+				<input type="text" id ="developerHQ">
+			</div>
+			<input type="submit" value="Submit" onclick="logDeveloper()"/>
+		</div>
+	</form>
+
+	<br>
+	</br>
+	<input type="submit" value="Add Sales" onclick="formSlide('salesForm')"/>
+	<form ng-hide="myCheck" id="salesForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="salesGameTitle">
+			</div>
+			<label  >Release year</label>
+			<div >
+				<input type="number" id ="salesGameReleaseYear">
+			</div>
+			<label  >Price</label>
+			<div >
+				<input type="number" id ="salesPrice">
+			</div>
+			<label  >Game System</label>
+			<div >
+				<input type="text" id ="salesSystem">
+			</div>
+			<label  >Units Sold </label>
+			<div >
+				<input type="number" id ="saleUnits">
+			</div>
+			<label  >Last Update</label>
+			<div >
+				<input type="text" id ="salesUpdate">
+			</div>
+			<label  >Organization</label>
+			<div >
+				<input type="text" id ="salesOrginization">
+			</div>
+			<label  >Region</label>
+			<div >
+				<input type="text" id ="salesRegion">
+			</div>
+			<input type="submit" value="Submit" onclick="logSales()"/>
+		</div>
+	</form>
+
+</div>
+
+</body>
+</html>
