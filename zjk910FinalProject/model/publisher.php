@@ -66,7 +66,7 @@
 
 		public static function remove($title){
 			$db = Database_Connection::getInstance();
-			$req = $db->prepare('DELETE FROM publisher WHERE game_title = :title');
+			$req = $db->prepare('DELETE FROM publisher WHERE publisher = :title');
 			$req->execute(array('title' => $title));
 
 			return null;
