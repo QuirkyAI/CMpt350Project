@@ -5,16 +5,16 @@
 	require_once('Connection.php');
 	class publisher {
 
-		public $name;
-		public $foundingy;
-		public $finaly;
-		public $region;
+		public $publisher;
+		public $founding_year;
+		public $final_year;
+		public $hq_region;
 
 		public function __construct($par_name, $par_found,$par_final, $par_region) {
-			$this->name = $par_name;
-			$this->foundingy = $par_found;
-			$this->finaly = $par_final;
-			$this->region = $par_region;
+			$this->publisher = $par_name;
+			$this->founding_year = $par_found;
+			$this->final_year = $par_final;
+			$this->hq_region = $par_region;
 		}
 
 		public static function all() {
