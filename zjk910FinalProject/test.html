@@ -24,7 +24,7 @@ div {
 <div ng-app="postApp" ng-controller='postController'>
 
 	<!-- when the add game button is cliicked it will call the function form slide to unhide/rehide the form that adds games to the database-->
-	<input type="submit" value="Add Game" ng-click=" $formSlide('gameForm')"/>
+	<input type="submit" value="Add Game" onclick="formSlide('gameForm')"/>
 	<!-- this is the form for putting a new game in the system -->
 	<form ng-hide="myCheck" id="gameForm" hidden>
 		<div >
@@ -48,7 +48,7 @@ div {
 			<div >
 				<input type="number" id ="gameBudget">
 			</div>
-			<input type="submit" value="Submit" onclick="logGame()"/>
+			<a ng-href='#here' ng-click='game()' >submit</a>
 		</div>
 	</form>
 
@@ -138,7 +138,7 @@ div {
 			<div >
 				<input type="text" id ="publisherHQ">
 			</div>
-			<input type="submit" value="Submit" onclick="logPublisher()"/>
+			<a ng-href='#here' ng-click='gamePub()' >submit</a>
 		</div>
 	</form>
 
@@ -163,7 +163,7 @@ div {
 			<div >
 				<input type="text" id ="developerHQ">
 			</div>
-			<input type="submit" value="Submit" onclick="logDeveloper()"/>
+			<a ng-href='#here' ng-click='gameDev()'  >submit</a>
 		</div>
 	</form>
 

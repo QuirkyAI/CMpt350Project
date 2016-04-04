@@ -4,7 +4,9 @@
 			 $(temp2).slideToggle();
 		}
 
-		function logGame($scope , $http){
+var postApp =angular.module('postApp', [])
+  postApp.controller('postController', function ($scope, $http) {
+		$scope.game = function logGame(){
 
 			var json = {'game_title': document.getElementById("gameTitle").value,
 						'release_year': document.getElementById("gameReleaseYear").value,
@@ -15,7 +17,7 @@
 			$http.post('http://localhost/api.php/games', json);
 		}
 
-		function logGameSystemGame($scope , $http){
+		$scope.gameSys =function logGameSystemGame(){
 			var json = {'game_title': document.getElementById("gameSystemGameTitle").value,
 						'release_year': document.getElementById("gameSystemGameReleaseYear").value,
 						'system': document.getElementById("gameSystem").value};
@@ -23,41 +25,41 @@
 			$http.post('http://localhost/api.php/game_systems', json);
 		}
 
-		function logGameRegionGame($scope , $http){
+		$scope.gameReg =function logGameRegionGame(){
 			var json = {'game_title': document.getElementById("gameRegionGameTitle").value,
 						'release_year': document.getElementById("gameRegionGameReleaseYear").value,
 						'region': document.getElementById("gameRegion").value};
 			console.log( json);
 			$http.post('http://localhost/api.php/game_regions', json);
 		}
-		function logGameTag($scope , $http){
+		$scope.gameTag =function logGameTag(){
 			var json = {'game_title': document.getElementById("gameTagGameTitle").value,
 						'release_year': document.getElementById("gameTagGameReleaseYear").value,
 						'tag': document.getElementById("gameTag").value};
 			console.log( json);
 			$http.post('http://localhost/api.php/game_tags', json);
 		}
-		function logPublisher($scope , $http){
-			var json = {'publisher_name':document.getElementById("publisherName").value,
+		$scope.gamePub =function logPublisher(){
+			var json = {'publisher':document.getElementById("publisherName").value,
 						'founding_year': document.getElementById("publisherFoundingYear").value,
 						'final_year': document.getElementById("publisherFinalYear").value,
 						'hq_region':document.getElementById("publisherHQ").value};
 
 			console.log(json);
-			$http.post('http://localhost/api.php/publisher', json);
+			$http.post('http://localhost/api.php/publishers', json);
 		}
 
-			function logDeveloper($scope , $http){
-			var json = {'publisher_name':document.getElementById("developerName").value,
+		$scope.gameDev =function logDeveloper(){
+			var json = {'developer':document.getElementById("developerName").value,
 						'founding_year': document.getElementById("developerFoundingYear").value,
 						'final_year': document.getElementById("developerFinalYear").value,
 						'hq_region':document.getElementById("developerHQ").value};
 
 			console.log(json);
-			$http.post('http://localhost/api.php/developer', json);
+			$http.post('http://localhost/api.php/developers', json);
 		}
 
-		function logSales($scope , $http){
+		$scope.gameSale =function logSales(){
 			var json = {'game_title' : document.getElementById("salesGameTitle").value,
 				'release_year' : document.getElementById("salesGameReleaseYear").value,
 				'price' : document.getElementById("salesPrice").value,
@@ -71,3 +73,4 @@
 
 			
 		}
+	})
