@@ -66,7 +66,7 @@
 
 		public static function remove($title){
 			$db = Database_Connection::getInstance();
-			$req = $db->prepare('DELETE FROM developer WHERE publisher = :title');
+			$req = $db->prepare('DELETE FROM developer WHERE developer = :title');
 			$req->execute(array('title' => $title));
 
 			return null;
