@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  transition: all linear 0.5s;
+  background-color: white;
+}
+
+
+.ng-hide {
+  height: 0;
+}
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src= "deleteController.js"></script>
+</head>
+<body>
+
+
+<div ng-app="deleteApp" ng-controller='deleteController'>
+
+	<!-- when the add game button is cliicked it will call the function form slide to unhide/rehide the form that adds games to the database-->
+	<input type="submit" value="Delete Game" onclick="formSlide('gameForm')"/>
+	<!-- this is the form for putting a new game in the system -->
+	<form ng-hide="myCheck" id="gameForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="gameTitle">
+			</div>
+			<label >Release year</label>
+			<div >
+				<input type="number" id ="gameReleaseYear">
+			</div>
+
+			<a ng-href='#here' ng-click='game()'  >submit</a>
+		</div>
+	</form>
+
+	<!-- this is the form for associating a game with a system-->
+	<br>
+	</br>
+	<input type="submit" value="Delete Game to System" onclick="formSlide('gameSystemsForm')"/>
+	<form ng-hide="myCheck" id="gameSystemsForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="gameSystemGameTitle">
+			</div>
+			<label  >Release year</label>
+			<div >
+				<input type="number" id ="gameSystemGameReleaseYear">
+			</div>
+			<label  >Game System</label>
+			<div >
+				<input type="text" id ="gameSystem">
+			</div>
+			<a ng-href='#here' ng-click='gameSys()'  >submit</a>
+	
+		</div>
+	</form>
+	<br>
+	</br>
+	<!-- this is the form for associating a game with a region-->
+
+	<input type="submit" value="Delete Game to Region" onclick="formSlide('gameRegionForm')"/>
+	<form ng-hide="myCheck" id="gameRegionForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="gameRegionGameTitle">
+			</div>
+			<label  >Release year</label>
+			<div >
+				<input type="number" id ="gameRegionGameReleaseYear">
+			</div>
+			<label  >Game Region</label>
+			<div >
+				<input type="text" id ="gameRegion">
+			</div>
+			<a ng-href='#here' ng-click='gameReg()'  >submit</a>
+	
+		</div>
+	</form>
+	<br>
+	</br>
+	<!-- this is the form for associating a game with a tag-->
+
+	<input type="submit" value="Delete Tag To Game" onclick="formSlide('gameTagForm')"/>
+	<form ng-hide="myCheck" id="gameTagForm" hidden>
+		<div >
+			<label >Title</label>
+			<div >
+				<input type="text" id ="gameTagGameTitle">
+			</div>
+			<label >Release year</label>
+			<div >
+				<input type="number" id ="gameTagGameReleaseYear">
+			</div>
+			<label  >Game Tag</label>
+			<div >
+				<input type="text" id ="gameTag">
+			</div>
+			<a ng-href='#here' ng-click='gameTag()'  >submit</a>
+	
+		</div>
+	</form>
+	<br>
+	</br>
+	<input type="submit" value="Delete Publisher" onclick="formSlide('publisherForm')"/>
+	<form ng-hide="myCheck" id="publisherForm" hidden>
+		<div >
+			<label  >Publisher</label>
+			<div >
+				<input type="text" id ="publisherName">
+			</div>
+
+			<a ng-href='#here' ng-click='gamePub()' >submit</a>
+	
+		</div>
+	</form>
+
+	<br>
+	</br>
+	<input type="submit" value="Delete Developer" onclick="formSlide('developerForm')"/>
+	<form ng-hide="myCheck" id="developerForm" hidden>
+		<div >
+			<label  >Developer</label>
+			<div >
+				<input type="text" id ="developerName">
+			</div>
+
+			<a ng-href='#here' ng-click='gameDev()'  >submit</a>
+	
+		</div>
+	</form>
+
+	<br>
+	</br>
+	<input type="submit" value="Delete Sales" onclick="formSlide('salesForm')"/>
+	<form ng-hide="myCheck" id="salesForm" hidden>
+		<div >
+			<label  >Title</label>
+			<div >
+				<input type="text" id ="salesGameTitle">
+			</div>
+			<label  >Release year</label>
+			<div >
+				<input type="number" id ="salesGameReleaseYear">
+			</div>
+			<label  >Price</label>
+			<div >
+				<input type="number" id ="salesPrice">
+			</div>
+			<label  >Game System</label>
+			<div >
+				<input type="text" id ="salesSystem">
+			</div>
+			<label  >Organization</label>
+			<div >
+				<input type="text" id ="salesOrginization">
+			</div>
+			<a ng-href='#here' ng-click='gameSale()'  >submit</a>
+			
+		</div>
+	</form>
+
+</div>
+
+</body>
+</html>
