@@ -1,0 +1,40 @@
+Calls For Tables
+	- Games
+		- Game Title
+			- Release Date
+	
+	- Games_Systems
+		- Game Title
+			- Release Date
+				- System
+			
+	- Game_regions
+		- Game Title
+			- Release Date
+				- Region
+			
+	- Game_Tags
+		- Game Title
+			- Release Date
+				- Tag
+	
+	- Regions
+	
+	- Sales
+		- Game Title
+			- Release Date
+				- Price
+					- System
+						- Organization
+	
+	- Systems
+	
+	- Users
+		- email
+			- password
+	
+	- Developer
+		- Developer Name
+	
+	- Publisher
+		- Publisher Name
