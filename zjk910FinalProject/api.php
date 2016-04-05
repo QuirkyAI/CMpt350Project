@@ -152,7 +152,7 @@
 							// Checking to see if a region has been given
 							if(isset($routes[3]))
 							{
-								if(preg_match('/[a-z]*/', $routes[3]))
+							if(preg_match('/[a-z]*/', $routes[3]))
 								$objgr_controller->setParameters($routes);
 							}
 							else
