@@ -2,6 +2,7 @@
 session_start();
 // added in v4.0.0
 require_once 'autoload.php';
+
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
@@ -13,10 +14,16 @@ use Facebook\GraphObject;
 use Facebook\Entities\AccessToken;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 use Facebook\HttpClients\FacebookHttpable;
+
+// start session
+
 // init app with app id and secret
-FacebookSession::setDefaultApplication( '540816312786331','8dd89c004ef5baa280cc969d556a8105' );
+FacebookSession::setDefaultApplication( '642963862396213','856379884d66aeeb6bb610b7b95c8550' );
+
 // login helper with redirect_uri
-    $helper = new FacebookRedirectLoginHelper('http://localhost/facebooklogexampleTHATWORKS/1353/fbconfig.php' );
+
+    $helper = new FacebookRedirectLoginHelper('http://demos.krizna.com/test.php' );
+
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
@@ -24,6 +31,7 @@ try {
 } catch( Exception $ex ) {
   // When validation fails or other local issues
 }
+
 // see if we have a session
 if ( isset( $session ) ) {
   // graph api request for user data
@@ -31,17 +39,20 @@ if ( isset( $session ) ) {
   $response = $request->execute();
   // get response
   $graphObject = $response->getGraphObject();
-     	$fbid = $graphObject->getProperty('id');              // To Get Facebook ID
+
+		$fbid = $graphObject->getProperty('id');              // To Get Facebook ID
+ 	    $fbuname = $graphObject->getProperty('username');  // To Get Facebook Username
  	    $fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
 	    $femail = $graphObject->getProperty('email');    // To Get Facebook email ID
 	/* ---- Session Variables -----*/
 	    $_SESSION['FBID'] = $fbid;           
+	    $_SESSION['USERNAME'] = $fbuname;
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
-    /* ---- header location after session ----*/
-  header("Location: index.php");
+    echo '<pre>' . print_r( $graphObject, 1 ) . '</pre>';
 } else {
-  $loginUrl = $helper->getLoginUrl();
- header("Location: ".$loginUrl);
+  // show login url
+  echo '<a href="' . $helper->getLoginUrl() . '">Login</a>';
 }
+
 ?>
