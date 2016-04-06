@@ -21,23 +21,45 @@
 				padding: 0.5em;
 			}
 			
-			.col-box {width: 100%;}
+			.col-box {
+				width: 100%;
+				padding: 0.5em;
+				font-size: larger;
+				font-weight: bold;
+			}
 			
 			.header {
-				background-color: #3300CC;
+				position: relative;
+				background: rgb(51,0,204);
+				background: rgba(51,0,204,0.7);
 				color: #ffffff;
 				padding: 0.5em;
+				margin-left: auto;
+				margin-right: auto;
 			}
 			
 			.body {
-				background-color: #FFFF00;
-				padding: 0.5em;
+				position: relative;
+				background: rgb(255,255,0);
+				background: rgba(255,255,0,0.8);
+				padding-left: 2.0em;
+				margin-left: auto;
+				margin-right: auto;
 			}
 			
 			.footer {
-				background-color: #E00000;
+				position: relative;
+				background: rgb(255,0,0);
+				background: rgba(255,0,0,0.7);
 				color: #ffffff;
-				padding: 0.5em;
+				padding: 2.0em;
+				margin-left: auto;
+				margin-right: auto;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 1.000em;
+				text-align: center;
+				font-style: italic;
+				position: relative;
 			}
 			
 			ul {
@@ -75,16 +97,9 @@
 				font-size: 0.875em;
 			}
 			
-			p.footer {
-				font-family: Arial, Helvetica, sans-serif;
-				font-size: 1.000em;
-				text-align: center;
-				font-style: italic;
-			}
-			
 			h1{
 				font-family: Arial, Helvetica, sans-serif;
-				font-size: 1.875em;
+				font-size: 1.775em;
 				font-weight: bold;
 				font-style: italic;
 				font-variant: small-caps;
@@ -92,91 +107,92 @@
 			}
 			
 			body {
-				font-size: 100%;
+				font-size: 150%;
 			}
 			
 			figure {
 				text-align: center;
 			}
 			.form {
-				
+				background: rgb(102,51,204);
+				background: rgba(102,51,204,0.7);
 				color: #ffffff;
 				padding: 2em;
 				text-align: left;
 				font-family: Arial, Helvetica, sans-serif;
 				font-size: 1em;
-				text-align: left;
+				
 			}
 			
-			div[back-img]{
-				width: 100%;
+			body {
+				background-image: url("https://awesomewallpapers.files.wordpress.com/2015/04/games-8.jpg");
+				background-color: #cccccc;
 				height: 100%;
+				width: 100%;
+				background-position:70% 0%;
+			}
+			
+			.card {
+				background: rgb(102,51,204);
+				background: rgba(102,51,204,0.7);
+				padding: 0.5em;
+				text-align: left;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 1.30em;
+				text-align: center;
+				font-style: italic;
 			}
 			
 		</style>
-		<script>
-		var app = angular.module('app',[]);
-		app.controller('ctrl', function($scope){
-		});
-
-
-		app.directive('backImg', function(){
-			return function(scope, element, attrs){
-				var url = attrs.backImg;
-				element.css({
-					'background-image': 'url(' + url +')',
-					'background-size' : 'cover'
-				});
-			};
-		});
-		</script>	
 	</head>
  
-  <body>
-	<div back-img="https://awesomewallpapers.files.wordpress.com/2015/04/games-8.jpg">
-    <header>
-		<?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
-			<!-- Create the menu -->
-			<ul>
-				<li><a href='?controller=pages&action=home'>Home</a></li>
-				<li><a href='?controller=pages&action=add'>Add</a></li>
-				<li><a href='?controller=pages&action=read'>Read</a></li>
-				<li><a href="../../logout.php">Logout</a></li>
-			</ul>
-		<?php endif ?>
+	<body>
+		<header>
+			<?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
+				<!-- Create the menu -->
+				<ul>
+					<li><a href='?controller=pages&action=home'>Home/About Us</a></li>
+					<li><a href='?controller=pages&action=add'>Add</a></li>
+					<li><a href='?controller=pages&action=read'>Read</a></li>
+					<li><a href="../../logout.php">Logout</a></li>
+				</ul>
+			<?php endif ?>
+			
+		</header>
 		
-    </header>
-    
-	<div class="header">
-		<div class="row">
-			<div class="col-box">
-				<h1>Zak Knippel's Video Game Industry Database</h1>
-				<!-- Insert the data given from the API -->
-				<p class="sansserrif" id="descriptor"></p>
+		<div class="header">
+			<div class="row">
+				<div class="col-box">
+					<h1>CMPT 350 - Video Game Industry Database</h1>
+					<!-- Insert the data given from the API -->
+					<p class="sansserrif" id="descriptor"></p>
+				</div>
 			</div>
 		</div>
-	</div>
-	
-	<div class="body">
-		<div class="row">
-			<div class="col-box">
-				<?php include('routes.php'); ?>
+		
+		<div class="body">
+			<div class="row">
+				<div class="col-box">
+					<?php include('routes.php'); ?>
+				</div>
 			</div>
 		</div>
-	</div>
+	</body>
 	
 	<footer>
 		<div class="footer">
 			<div class="row">
 				<div class="col-box">
 					<p><figure>
-					<p class="footer">Copyright: Zachary Knippel</p>
-					</p>
+					<p style="font-size: 150%;">Copyright: Zachary Knippel & Connor Nettleton-Gooding</p>
+					<br>
+					<p>WEBSITE ADMINS:</p>
+					<p>Zachary Knippel (zjk910@mail.usask.ca)</p>
+					<p>Connor Nettleton-Gooding (cwn973@mail.usask.ca)</p>
 				</div>
 			</div>
 		</div>
 	</footer>
-	</div>
-  </body>
+	
 <html>
 
