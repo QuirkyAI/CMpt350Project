@@ -60,7 +60,7 @@
 			// Checking to see if the name of a developer has been given
 			if (isset($routes[1]))
 			{
-				if(preg_match('/[a-z]/',$routes[1]))
+				if(preg_match('/[a-z]*/',$routes[1]))
 				{
 					$objdev_controller->setParameters($routes);
 				}
@@ -79,11 +79,12 @@
 			// Checking to see if a game title has been given
 			if(isset($routes[1]))
 			{			
-				if(preg_match('/[a-z]/',$routes[1]))
+				if(preg_match('/[a-z]*/',$routes[1]))
 				{
 					// Checking to see if a release date has been given
 					if (isset($routes[2]))
 					{
+						
 						if(preg_match('/[0-9]*/', $routes[2]))
 						{
 							$objgame_controller->setParameters($routes);
@@ -106,11 +107,12 @@
 			// Checking to see if a game title has been given
 			if(isset($routes[1]))
 			{			
-				if(preg_match('/[a-z]/',$routes[1]))
+				if(preg_match('/[a-z]*/',$routes[1]))
 				{
 					// Checking to see if a release date has been given
 					if (isset($routes[2]))
 					{
+						
 						if(preg_match('/[0-9]*/', $routes[2]))
 						{
 							
@@ -141,7 +143,7 @@
 			// Checking to see if a game title has been given
 			if(isset($routes[1]))
 			{			
-				if(preg_match('/[a-z]/',$routes[1]))
+				if(preg_match('/[a-z]*/',$routes[1]))
 				{
 					// Checking to see if a release date has been given
 					if (isset($routes[2]))
@@ -178,7 +180,7 @@
 			// Checking to see if a game title has been given
 			if(isset($routes[1]))
 			{			
-				if(preg_match('/[a-z]/',$routes[1]))
+				if(preg_match('/[a-z]*/',$routes[1]))
 				{
 					// Checking to see if a release date has been given
 					if (isset($routes[2]))
@@ -216,7 +218,7 @@
 			// Checking to see if the name of a publisher has been given
 			if (isset($routes[1]))
 			{
-				if(preg_match('/[a-z]/',$routes[1]))
+				if(preg_match('/[a-z]*/',$routes[1]))
 				{
 					$objpub_controller->setParameters($routes);
 				}
@@ -244,7 +246,7 @@
 			// Checking to see if a game title is given
 			if(isset($routes[1]))
 			{
-				if(preg_match('/[a-z]/',$routes[1]))
+				if(preg_match('/[a-z]*/',$routes[1]))
 				{
 					// Checking to see if a release date is given
 					if (isset($routes[2]))
@@ -296,15 +298,6 @@
 			
 			$input = json_decode(file_get_contents('php://input'),true);
 			echo ($objsys_controller->setQuery($method,$input));
-		}
-		if($routes[0] == 'users')
-		{
-			if(isset($routes[1]) && isset($routes[2]))
-			{
-				$objuser_controller->setParameters($routes);
-				$input = json_decode(file_get_contents('php://input'),true);
-				echo ($objuser_controller->setQuery($method,$input));
-			}
 		}
 		
 	}

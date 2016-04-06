@@ -31,7 +31,6 @@
 			if(isset ($routes[2]))
 			{
 				$this->key2 = urldecode($routes[2]);
-				echo $this->key2;
 			}
 
 
@@ -78,10 +77,14 @@
 					return $lastInserted;
 					break;
 				case 'DELETE':
-					if(isset($this->key) && isset($this->key2)){
-						return json_encode($this->remove($this->key,$this->key2));
+					if(isset($this->key))
+					{
+						if(isset($this->key2))
+						{
+							return json_encode($this->remove($this->key,$this->key2));
+							break;
+						}
 					}
-					break;
 			}
 		}
 		
