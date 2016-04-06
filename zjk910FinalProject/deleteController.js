@@ -24,7 +24,7 @@ var deleteApp =angular.module('deleteApp', [])
 				if (release_year != "")
 				{
 					address = address +"/"+release_year;
-					$http.delete(address);
+					$http.delete(encodeURI(address));
 				}
 			}
 		}
@@ -51,7 +51,7 @@ var deleteApp =angular.module('deleteApp', [])
 					if (game_system != "")
 					{
 						address = address +"/"+game_system;
-						$http.delete(address);
+						$http.delete(encodeURI(address));
 					}
 				}
 			}
@@ -78,7 +78,7 @@ var deleteApp =angular.module('deleteApp', [])
 					if (game_region != "")
 					{
 						address = address +"/"+game_region;
-						$http.delete(address);
+						$http.delete(encodeURI(address));
 					}
 				}
 			}
@@ -105,7 +105,7 @@ var deleteApp =angular.module('deleteApp', [])
 					if (game_tag != "")
 					{
 						address = address +"/"+game_tag;
-						$http.delete(address);
+						$http.delete(encodeURI(address));
 					}
 				}
 			}
@@ -125,7 +125,7 @@ var deleteApp =angular.module('deleteApp', [])
 				console.log("here");
 				address = address +"/"+dev;
 				console.log(address);
-				$http.delete(address);
+				$http.delete(encodeURI(address));
 			}
 		}
 
@@ -142,7 +142,7 @@ var deleteApp =angular.module('deleteApp', [])
 				console.log("here");
 				address = address +"/"+dev;
 				console.log(address);
-				$http.delete(address);
+				$http.delete(encodeURI(address));
 			}
 		}
 
@@ -177,7 +177,7 @@ var deleteApp =angular.module('deleteApp', [])
 							if( organization != "")
 							{
 								address = address + "/" + organization;
-								$http.delete(address);
+								$http.delete(encodeURI(address));
 							}
 						}
 
