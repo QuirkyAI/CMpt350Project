@@ -33,7 +33,7 @@
 
 			if (isset($rdate))
 			{
-				if(isset($price))
+				if(isset($reg))
 				{
 					$req = $db->prepare('SELECT * FROM game_regions WHERE game_title = :title AND release_year = :rdate AND region = :reg');
 					

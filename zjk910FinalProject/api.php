@@ -49,7 +49,7 @@
 	  $method = $_SERVER['REQUEST_METHOD'];
 
 	 
-	  if (preg_match('/[a-z]/',$routes[0]))
+	  if (preg_match('/[a-z]*[_]*[a-z]*/',$routes[0]))
 	  {
 		  
 		// Contacting developers table
