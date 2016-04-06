@@ -67,6 +67,7 @@ var getApp =angular.module('getApp', [])
 					}
 				}
 			}
+			console.log(address);
 			$http.get(address)
 			.then(function(response) {
 				var retString = "";
@@ -147,6 +148,7 @@ var getApp =angular.module('getApp', [])
 					}
 				}
 			}
+			console.log(address);
 			$http.get(address)
 			.then(function(response) {
 				var retString = "";
@@ -178,6 +180,7 @@ var getApp =angular.module('getApp', [])
 				address = address +"/"+dev;
 				console.log(address);
 			}
+			console.log(address);
 			$http.get(address)
 			.then(function(response) {
 				var retString = "";

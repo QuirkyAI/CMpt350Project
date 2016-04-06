@@ -63,11 +63,11 @@ var postApp =angular.module('postApp', [])
 			var json = {'game_title' :  (document.getElementById("salesGameTitle").value),
 				'release_year' :  (document.getElementById("salesGameReleaseYear").value),
 				'price' :  (document.getElementById("salesPrice").value),
-				'system': (document.getElementById("salesSystem").value),
+				'sys': (document.getElementById("salesSystem").value),
 				'units' : (document.getElementById("saleUnits").value),
 				'last_update' :  (document.getElementById("salesUpdate").value),
-				'organization' :  (document.getElementById("salesOrginization").value),
-				'region' :  (document.getElementById("salesRegion").value)};
+				'org' :  (document.getElementById("salesOrginization").value),
+				'reg' :  (document.getElementById("salesRegion").value)};
 			console.log(json);
 			$http.post('http://localhost/api.php/sales', json);
 
