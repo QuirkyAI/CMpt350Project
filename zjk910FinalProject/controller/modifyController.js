@@ -40,7 +40,7 @@ var modifyApp =angular.module('modifyApp', [])
 			var title = encodeURI(document.getElementById("gameSystemGameTitle").value);
 			var release_year =encodeURI(document.getElementById("gameSystemGameReleaseYear").value);
 			var game_system =encodeURI(document.getElementById("gameSystem").value);
-			var address = 'http://localhost/api.php/game_systems';
+			var address = 'http://localhost/api.php/games_systems';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -58,7 +58,7 @@ var modifyApp =angular.module('modifyApp', [])
 						address = address +"/"+game_system;
 						var json = {'game_title': (document.getElementById("gameSystemGameTitle").value),
 						'release_year': (document.getElementById("gameSystemGameReleaseYear").value),
-						'system': (document.getElementById("gameSystem").value)};
+						'sys': (document.getElementById("gameSystem").value)};
 						$http.put(address,json);
 					}
 				}

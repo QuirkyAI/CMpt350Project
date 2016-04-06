@@ -48,7 +48,7 @@ var getApp =angular.module('getApp', [])
 			var title = document.getElementById("gameSystemGameTitle").value;
 			var release_year =document.getElementById("gameSystemGameReleaseYear").value;
 			var game_system =document.getElementById("gameSystem").value;
-			var address = 'http://localhost/api.php/game_systems';
+			var address = 'http://localhost/api.php/games_systems';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -72,11 +72,11 @@ var getApp =angular.module('getApp', [])
 				var retString = "";
 				if(response.data.length === undefined)
 				{
-					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.founding_year+ "   System:" + response.data.system +"\n";
+					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.founding_year+ "   System:" + response.data.sys +"\n";
 				}
 				else{
 					for (i = 0; i < response.data.length; i++){
-						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].founding_year+ "   System:" + response.data[i].system +"\n";
+						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].founding_year+ "   System:" + response.data[i].sys +"\n";
 					}
 				}
      			document.getElementById("gameSysTextarea").value = retString;

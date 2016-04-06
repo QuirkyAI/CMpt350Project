@@ -35,7 +35,7 @@ var deleteApp =angular.module('deleteApp', [])
 			var title = document.getElementById("gameSystemGameTitle").value;
 			var release_year= document.getElementById("gameSystemGameReleaseYear").value;
 			var game_system =document.getElementById("gameSystem").value;
-			var address = 'http://localhost/api.php/game_systems';
+			var address = 'http://localhost/api.php/games_systems';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
