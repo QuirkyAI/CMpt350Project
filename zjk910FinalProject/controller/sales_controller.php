@@ -102,12 +102,13 @@
 		}
 		
 
+		
 		function readAll(){
 			return sales::all();
 		}
 
-		function find($id1, $id2, $id3){
-			return sales::find($id1, $id2, $id3);
+		function find($id1, $id2, $id3, $id4, $id5){
+			return sales::find($id1, $id2, $id3, $id4, $id5);
 		}
 
 		function update(){

@@ -33,7 +33,7 @@
 
 			if (isset($rdate))
 			{
-				if(isset($price))
+				if(isset($sys))
 				{
 					$req = $db->prepare('SELECT * FROM games_systems WHERE game_title = :title AND release_year = :rdate AND system = :sys');
 					
@@ -47,8 +47,8 @@
 					$req = $db->prepare('SELECT * FROM games_systems WHERE game_title = :title AND release_year = :rdate');
 					
 					$req->execute(array('title' => $title, 'rdate' => $rdate));
-					$sale = $req->fetch();
-					foreach($req->fetchAll() as $sale) {
+					$games_systems = $req->fetch();
+					foreach($req->fetchAll() as $games_systems) {
 						$list[]= new games_systems($games_systems['game_title'], $games_systems['release_year'], $games_systems['system']);
 					}
 					return $list;
@@ -61,7 +61,7 @@
 			{
 				$req = $db->prepare('SELECT * FROM games_systems WHERE game_title = :title');
 				$req->execute(array('title' => $title));
-				foreach($req->fetchAll() as $sale) {
+				foreach($req->fetchAll() as $games_systems) {
 					$list[]= new games_systems($games_systems['game_title'], $games_systems['release_year'], $games_systems['system']);
 				}
 				return $list;

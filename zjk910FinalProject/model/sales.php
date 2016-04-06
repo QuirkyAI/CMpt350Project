@@ -63,7 +63,7 @@
 							$req->execute(array('title' => $title, 'rdate' => $rdate, 'price' => $price, 'sys' => $sys));
 							
 							$sales = $req->fetch();
-							foreach($req->fetchAll() as $sale) {
+							foreach($req->fetchAll() as $sales) {
 								$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
 							}
 							return $list;
@@ -76,7 +76,7 @@
 						$req->execute(array('title' => $title, 'rdate' => $rdate, 'price' => $price));
 						$sales = $req->fetch();
 						
-						foreach($req->fetchAll() as $sale) {
+						foreach($req->fetchAll() as $sales) {
 							$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
 						}
 						return $list;
@@ -89,7 +89,7 @@
 					
 					$req->execute(array('title' => $title, 'rdate' => $rdate));
 					$sales = $req->fetch();
-					foreach($req->fetchAll() as $sale) {
+					foreach($req->fetchAll() as $sales) {
 						$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
 					}
 					return $list;
@@ -102,7 +102,7 @@
 			{
 				$req = $db->prepare('SELECT * FROM sales WHERE game_title = :title');
 				$req->execute(array('title' => $title));
-				foreach($req->fetchAll() as $sale) {
+				foreach($req->fetchAll() as $sales) {
 					$list[]= new sales($sales['game_title'], $sales['release_year'], $sales['price'], $sales['system'], $sales['units'], $sales['last_update'], $sales['organization'], $sales['region']);
 				}
 				return $list;
