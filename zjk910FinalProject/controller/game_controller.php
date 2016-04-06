@@ -31,6 +31,7 @@
 			if(isset ($routes[2]))
 			{
 				$this->key2 = urldecode($routes[2]);
+				echo $this->key2;
 			}
 
 

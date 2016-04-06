@@ -84,7 +84,7 @@
 					// Checking to see if a release date has been given
 					if (isset($routes[2]))
 					{
-						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
+						if(preg_match('/[0-9]*/', $routes[2]))
 						{
 							$objgame_controller->setParameters($routes);
 						}
@@ -111,7 +111,7 @@
 					// Checking to see if a release date has been given
 					if (isset($routes[2]))
 					{
-						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
+						if(preg_match('/[0-9]*/', $routes[2]))
 						{
 							
 							// Checking to see if a system has been given
@@ -146,7 +146,7 @@
 					// Checking to see if a release date has been given
 					if (isset($routes[2]))
 					{
-						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
+						if(preg_match('/[0-9]*/', $routes[2]))
 						{
 							
 							// Checking to see if a region has been given
@@ -183,7 +183,7 @@
 					// Checking to see if a release date has been given
 					if (isset($routes[2]))
 					{
-						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
+						if(preg_match('/[0-9]*/', $routes[2]))
 						{
 							
 							// Checking to see if a region has been given
@@ -249,12 +249,12 @@
 					// Checking to see if a release date is given
 					if (isset($routes[2]))
 					{
-						if(preg_match('/[0-9]*-[0-9]*-[0-9]*/', $routes[2]))
+						if(preg_match('/[0-9]*/', $routes[2]))
 						{
 							// Checking to see if a price is given
 							if(isset($routes[3]))
 							{
-								if(preg_match('/[0-9]*.[0-9][0-9]/', routes[3]))
+								if(preg_match('/[0-9]*/', routes[3]))
 								{
 									if(isset($routes[4]))
 									{
