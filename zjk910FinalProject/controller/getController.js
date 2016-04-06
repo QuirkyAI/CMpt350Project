@@ -279,11 +279,11 @@ var getApp =angular.module('getApp', [])
 				var retString = "";
 				if(response.data.length === undefined)
 				{
-					retString = retString + "Game Title: "+ response.data.game_title+ "  Release Date:" + response.data.release_date+ "   Price:" + response.data.price+ "   System:" + response.data.system + "   Units:" + response.data.units+ "   Last Update:" + response.data.last_update+ "   Organization:" + response.data.organization+ "   Region:" + response.data.region +" " +"\n";
+					retString = retString + "Game Title: "+ response.data.game_title+ "  Release Date:" + response.data.release_date+ "   Price:" + response.data.price+ "   System:" + response.data.sys + "   Units:" + response.data.units+ "   Last Update:" + response.data.last_update+ "   Organization:" + response.data.org+ "   Region:" + response.data.reg +" " +"\n";
 				}
 				else{
 					for (i = 0; i < response.data.length; i++){
-					retString = retString + "Game Title: "+ response.data[i].game_title+ "  Release Date:" + response.data[i].release_date+ "   Price:" + response.data[i].price+ "   System:" + response.data[i].system + "   Units:" + response.data[i].units+ "   Last Update:" + response.data[i].last_update+ "   Organization:" + response.data[i].organization+ "   Region:" + response.data[i].region+ " " +"\n";
+					retString = retString + "Game Title: "+ response.data[i].game_title+ "  Release Date:" + response.data[i].release_date+ "   Price:" + response.data[i].price+ "   System:" + response.data[i].sys + "   Units:" + response.data[i].units+ "   Last Update:" + response.data[i].last_update+ "   Organization:" + response.data[i].org+ "   Region:" + response.data[i].reg+ " " +"\n";
 					}
 				}
      			document.getElementById("gameSalesTextarea").value = retString;
