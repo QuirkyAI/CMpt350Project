@@ -22,7 +22,7 @@
 
 			
 			foreach($req->fetchAll() as $game_regions) {
-				$list[]= new $game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
+				$list[]= new game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
 			}
 			return $list;
 		}
@@ -39,7 +39,7 @@
 					$req->execute(array('title' => $title, 'rdate' => $rdate, 'reg' => $reg));
 					$game_regions = $req->fetch();
 
-					return new $game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
+					return new game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
 				}
 				else
 				{
@@ -48,7 +48,7 @@
 					$req->execute(array('title' => $title, 'rdate' => $rdate));
 					$game_regions = $req->fetch();
 					foreach($req->fetchAll() as $game_regions) {
-						$list[]= new $game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
+						$list[]= new game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
 					}
 					return $list;
 				}
@@ -61,7 +61,7 @@
 				$req = $db->prepare('SELECT * FROM game_regions WHERE game_title = :title');
 				$req->execute(array('title' => $title));
 				foreach($req->fetchAll() as $game_regions) {
-					$list[]= new $game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
+					$list[]= new game_regions($game_regions['game_title'], $game_regions['release_year'],  $game_regions['region']);
 				}
 				return $list;
 			}
