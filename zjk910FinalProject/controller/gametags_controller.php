@@ -66,9 +66,6 @@
 			switch ($method) {
 				case 'GET':
 					if(isset($this->key)){
-						echo $this->key;
-						echo $this->key2;
-						echo $this->key3;
 						return json_encode($this->find($this->key,$this->key2,$this->key3));
 					}else{
 						return json_encode($this->readAll());

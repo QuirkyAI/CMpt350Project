@@ -254,7 +254,7 @@
 							// Checking to see if a price is given
 							if(isset($routes[3]))
 							{
-								if(preg_match('/[0-9]*/', routes[3]))
+								if(preg_match('/[0-9]*/', $routes[3]))
 								{
 									if(isset($routes[4]))
 									{
