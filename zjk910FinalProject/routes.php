@@ -8,7 +8,7 @@
   }
   
   
-  $controllers = array('pages' => ['home', 'error', 'add', 'read']);
+  $controllers = array('pages' => ['home', 'error', 'add', 'read', 'modify', 'remove']);
 
   
   if (array_key_exists($controller, $controllers)) {

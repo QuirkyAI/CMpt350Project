@@ -165,6 +165,8 @@
 					<li><a href='?controller=pages&action=home'>Home/About Us</a></li>
 					<li><a href='?controller=pages&action=add'>Add</a></li>
 					<li><a href='?controller=pages&action=read'>Read</a></li>
+					<li><a href='?controller=pages&action=modify'>Update</a></li>
+					<li><a href='?controller=pages&action=remove'>Delete</a></li>
 					<li><a href="../../logout.php">Logout</a></li>
 				</ul>
 			<?php endif ?>
