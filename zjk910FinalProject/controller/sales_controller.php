@@ -112,7 +112,7 @@
 		}
 
 		function update(){
-			return sales::update($this->key,$this->key2,$this->key3, $this->key4, $this->key5);
+			return sales::update($this->set, $this->key,$this->key2,$this->key3, $this->key4, $this->key5);
 		}
 		function create(){
 			return sales::create($this->set);

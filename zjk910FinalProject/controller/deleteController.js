@@ -10,8 +10,8 @@ var deleteApp =angular.module('deleteApp', [])
 
 
 			
-			var title = document.getElementById("gameSystemGameTitle").value;
-			var release_year =document.getElementById("gameSystemGameReleaseYear").value;
+			var title = document.getElementById("gameTitle").value;
+			var release_year =document.getElementById("gameReleaseYear").value;
 			var address = 'http://localhost/api.php/games';
 
 			title = title.toLowerCase();
@@ -24,6 +24,7 @@ var deleteApp =angular.module('deleteApp', [])
 				if (release_year != "")
 				{
 					address = address +"/"+release_year;
+					console.log(address);
 					$http.delete(encodeURI(address));
 				}
 			}

@@ -228,16 +228,7 @@ var getApp =angular.module('getApp', [])
 		}
 
 		$scope.gameSale =function logSales(){
-			var json = {'game_title' : document.getElementById("salesGameTitle").value,
-				'release_year' : document.getElementById("salesGameReleaseYear").value,
-				'price' : document.getElementById("salesPrice").value,
-				'system':document.getElementById("salesSystem").value,
-				'units' :document.getElementById("saleUnits").value,
-				'last_update' : document.getElementById("salesUpdate").value,
-				'organization' : document.getElementById("salesOrginization").value,
-				'region' : document.getElementById("salesRegion").value};
-			console.log(json);
-
+			
 			var game_title = document.getElementById("salesGameTitle").value;
 			var release_year = document.getElementById("salesGameReleaseYear").value;
 			var price = document.getElementById("salesPrice").value;
@@ -251,7 +242,6 @@ var getApp =angular.module('getApp', [])
 			organization = organization.toLowerCase();
 
 			var address = 'http://localhost/api.php/sales';
-
 			if( game_title != "")
 			{
 				address = address + "/" + game_title;
@@ -273,10 +263,11 @@ var getApp =angular.module('getApp', [])
 					}
 				}
 			}
-
+			console.log(address);
 			$http.get(address)
 			.then(function(response) {
 				var retString = "";
+				console.log(response);
 				if(response.data.length === undefined)
 				{
 					retString = retString + "Game Title: "+ response.data.game_title+ "  Release Date:" + response.data.release_date+ "   Price:" + response.data.price+ "   System:" + response.data.sys + "   Units:" + response.data.units+ "   Last Update:" + response.data.last_update+ "   Organization:" + response.data.org+ "   Region:" + response.data.reg +" " +"\n";
