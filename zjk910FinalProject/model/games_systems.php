@@ -22,7 +22,7 @@
 
 			
 			foreach($req->fetchAll() as $games_systems) {
-				$list[]= new $games_systems($games_systems['game_title'], $games_systems['release_year'],  $games_systems['system']);
+				$list[]= new games_systems($games_systems['game_title'], $games_systems['release_year'],  $games_systems['system']);
 			}
 			return $list;
 		}
