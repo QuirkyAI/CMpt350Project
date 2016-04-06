@@ -12,7 +12,7 @@ var getApp =angular.module('getApp', [])
 			
 			var title = document.getElementById("gameTitle").value;
 			var release_year = document.getElementById("gameReleaseYear").value;
-			var address = 'http://localhost/api.php/games';
+			var address = 'api.php/games';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -26,6 +26,7 @@ var getApp =angular.module('getApp', [])
 					address = address +"/"+release_year;
 				}
 			}
+			console.log(address);
 			$http.get(address)
 			.then(function(response) {
 				var retString = "";
@@ -38,6 +39,7 @@ var getApp =angular.module('getApp', [])
 						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].release_year+ "   Publisher:" + response.data[i].publisher + "   Developer:" + response.data[i].developer +"   Budget:" + response.data[i].budget +"\n";
 					}
 				}
+				console.log(address);
      			document.getElementById("gameTextarea").value = retString;
   			});
 		}
@@ -48,7 +50,7 @@ var getApp =angular.module('getApp', [])
 			var title = document.getElementById("gameSystemGameTitle").value;
 			var release_year =document.getElementById("gameSystemGameReleaseYear").value;
 			var game_system =document.getElementById("gameSystem").value;
-			var address = 'http://localhost/api.php/games_systems';
+			var address = 'api.php/games_systems';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -89,7 +91,7 @@ var getApp =angular.module('getApp', [])
 			var title = document.getElementById("gameRegionGameTitle").value;
 			var release_year= document.getElementById("gameRegionGameReleaseYear").value;
 			var game_region =document.getElementById("gameRegion").value;
-			var address = 'http://localhost/api.php/game_regions';
+			var address = 'api.php/game_regions';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -129,7 +131,7 @@ var getApp =angular.module('getApp', [])
 			var title = document.getElementById("gameTagGameTitle").value;
 			var release_year= document.getElementById("gameTagGameReleaseYear").value;
 			var game_tag =document.getElementById("gameTag").value;
-			var address = 'http://localhost/api.php/game_tags';
+			var address = 'api.php/game_tags';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -170,7 +172,7 @@ var getApp =angular.module('getApp', [])
 		$scope.gamePub =function logPublisher(){
 
 			console.log("got here pub ");
-			var address = 'http://localhost/api.php/publishers';
+			var address = 'api.php/publishers';
 			var dev = document.getElementById("publisherName").value;
 			dev = dev.toLowerCase();
 			console.log(dev);
@@ -201,7 +203,7 @@ var getApp =angular.module('getApp', [])
 			
 
 
-			var address = 'http://localhost/api.php/developers';
+			var address = 'api.php/developers';
 			var dev = document.getElementById("developerName").value;
 			dev = dev.toLowerCase();
 			console.log(dev);
@@ -241,7 +243,7 @@ var getApp =angular.module('getApp', [])
 			system = system.toLowerCase();
 			organization = organization.toLowerCase();
 
-			var address = 'http://localhost/api.php/sales';
+			var address = 'api.php/sales';
 			if( game_title != "")
 			{
 				address = address + "/" + game_title;
@@ -285,7 +287,7 @@ var getApp =angular.module('getApp', [])
 
 		$scope.reg=function reg(){
 
-			var address = 'http://localhost/api.php/regions';
+			var address = 'api.php/regions';
 			console.log("here1");
 			$http.get(address)
 			.then(function(response) {
@@ -306,7 +308,7 @@ var getApp =angular.module('getApp', [])
 
 		$scope.sys =function sys(){
 
-			var address = 'http://localhost/api.php/systems';
+			var address = 'api.php/systems';
 			console.log("here2");
 			$http.get(address)
 			.then(function(response) {

@@ -12,7 +12,7 @@ var modifyApp =angular.module('modifyApp', [])
 			
 			var title = encodeURI(document.getElementById("gameTitle").value);
 			var release_year = encodeURI(document.getElementById("gameReleaseYear").value);
-			var address = 'http://localhost/api.php/games';
+			var address = 'api.php/games';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -40,7 +40,7 @@ var modifyApp =angular.module('modifyApp', [])
 			var title = encodeURI(document.getElementById("gameSystemGameTitle").value);
 			var release_year =encodeURI(document.getElementById("gameSystemGameReleaseYear").value);
 			var game_system =encodeURI(document.getElementById("gameSystem").value);
-			var address = 'http://localhost/api.php/games_systems';
+			var address = 'api.php/games_systems';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -70,7 +70,7 @@ var modifyApp =angular.module('modifyApp', [])
 			var title = encodeURI(document.getElementById("gameRegionGameTitle").value);
 			var release_year= encodeURI(document.getElementById("gameRegionGameReleaseYear").value);
 			var game_region =encodeURI(document.getElementById("gameRegion").value);
-			var address = 'http://localhost/api.php/game_regions';
+			var address = 'api.php/game_regions';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -100,7 +100,7 @@ var modifyApp =angular.module('modifyApp', [])
 			var title = encodeURI(document.getElementById("gameTagGameTitle").value);
 			var release_year =encodeURI(document.getElementById("gameTagGameReleaseYear").value);
 			var game_tag =encodeURI(document.getElementById("gameTag").value);
-			var address = 'http://localhost/api.php/game_tags';
+			var address = 'api.php/game_tags';
 
 			title = title.toLowerCase();
 			release_year = release_year.toLowerCase();
@@ -130,7 +130,7 @@ var modifyApp =angular.module('modifyApp', [])
 		$scope.gamePub =function logPublisher(){
 
 			console.log("got here pub ");
-			var address = 'http://localhost/api.php/publishers';
+			var address = 'api.php/publishers';
 			var dev = encodeURI(document.getElementById("publisherName").value);
 			dev = dev.toLowerCase();
 			console.log(dev);
@@ -152,7 +152,7 @@ var modifyApp =angular.module('modifyApp', [])
 			
 
 
-			var address = 'http://localhost/api.php/developers';
+			var address = 'api.php/developers';
 			var dev = encodeURI(document.getElementById("developerName").value);
 			dev = dev.toLowerCase();
 			console.log(dev);
@@ -193,7 +193,7 @@ var modifyApp =angular.module('modifyApp', [])
 			system = system.toLowerCase();
 			organization = organization.toLowerCase();
 
-			var address = 'http://localhost/api.php/sales';
+			var address = 'api.php/sales';
 
 			if( game_title != "")
 			{

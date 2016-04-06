@@ -14,7 +14,7 @@ var postApp =angular.module('postApp', [])
 						'developer' :  (document.getElementById("gameDeveloper").value),
 						'budget':  (document.getElementById("gameBudget").value) };
 			console.log( json);
-			$http.post('http://localhost/api.php/games', json);
+			$http.post('api.php/games', json);
 		}
 
 		$scope.gameSys =function logGameSystemGame(){
@@ -22,7 +22,7 @@ var postApp =angular.module('postApp', [])
 						'release_year':  (document.getElementById("gameSystemGameReleaseYear").value),
 						'system':  (document.getElementById("gameSystem").value)};
 			console.log( json);
-			$http.post('http://localhost/api.php/games_systems', json);
+			$http.post('api.php/games_systems', json);
 		}
 
 		$scope.gameReg =function logGameRegionGame(){
@@ -30,14 +30,14 @@ var postApp =angular.module('postApp', [])
 						'release_year':  (document.getElementById("gameRegionGameReleaseYear").value),
 						'region':  (document.getElementById("gameRegion").value)};
 			console.log( json);
-			$http.post('http://localhost/api.php/game_regions', json);
+			$http.post('api.php/game_regions', json);
 		}
 		$scope.gameTag =function logGameTag(){
 			var json = {'game_title':  (document.getElementById("gameTagGameTitle").value),
 						'release_year':  (document.getElementById("gameTagGameReleaseYear").value),
 						'tag':  (document.getElementById("gameTag").value)};
 			console.log( json);
-			$http.post('http://localhost/api.php/game_tags', json);
+			$http.post('api.php/game_tags', json);
 		}
 		$scope.gamePub =function logPublisher(){
 			var json = {'publisher': (document.getElementById("publisherName").value),
@@ -46,7 +46,7 @@ var postApp =angular.module('postApp', [])
 						'hq_region': (document.getElementById("publisherHQ").value)};
 
 			console.log(json);
-			$http.post('http://localhost/api.php/publishers', json);
+			$http.post('api.php/publishers', json);
 		}
 
 		$scope.gameDev =function logDeveloper(){
@@ -56,7 +56,7 @@ var postApp =angular.module('postApp', [])
 						'hq_region': (document.getElementById("developerHQ").value)};
 
 			console.log(json);
-			$http.post('http://localhost/api.php/developers', json);
+			$http.post('api.php/developers', json);
 		}
 
 		$scope.gameSale =function logSales(){
@@ -69,7 +69,7 @@ var postApp =angular.module('postApp', [])
 				'organization' :  (document.getElementById("salesOrginization").value),
 				'region' :  (document.getElementById("salesRegion").value)};
 			console.log(json);
-			$http.post('http://localhost/api.php/sales', json);
+			$http.post('api.php/sales', json);
 
 			
 		}
