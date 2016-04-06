@@ -39,10 +39,18 @@
 				margin-right: auto;
 			}
 			
+			.box	{
+				margin-top: 1em;
+				margin-bottom: 1em;
+				margin-left: 3em;
+				margin-right: 3em;
+			}
+			
 			.body {
 				position: relative;
 				background: rgb(255,255,0);
 				background: rgba(255,255,0,0.8);
+				background-size: 90% auto;
 				padding-left: 2.0em;
 				margin-left: auto;
 				margin-right: auto;
@@ -131,6 +139,8 @@
 				height: 100%;
 				width: 100%;
 				background-position:70% 0%;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
 			}
 			
 			.card {
@@ -160,36 +170,41 @@
 			<?php endif ?>
 			
 		</header>
-		
-		<div class="header">
-			<div class="row">
-				<div class="col-box">
-					<h1>CMPT 350 - Video Game Industry Database</h1>
-					<!-- Insert the data given from the API -->
-					<p class="sansserrif" id="descriptor"></p>
+		<div class="box">
+			<div class="header">
+				<div class="row">
+					<div class="col-box">
+						<h1>CMPT 350 - Video Game Industry Database</h1>
+						<!-- Insert the data given from the API -->
+						<p class="sansserrif" id="descriptor"></p>
+					</div>
 				</div>
 			</div>
 		</div>
 		
-		<div class="body">
-			<div class="row">
-				<div class="col-box">
-					<?php include('routes.php'); ?>
+		<div class="box">
+			<div class="body">
+				<div class="row">
+					<div class="col-box">
+						<?php include('routes.php'); ?>
+					</div>
 				</div>
 			</div>
 		</div>
 	</body>
 	
 	<footer>
-		<div class="footer">
-			<div class="row">
-				<div class="col-box">
-					<p><figure>
-					<p style="font-size: 150%;">Copyright: Zachary Knippel & Connor Nettleton-Gooding</p>
-					<br>
-					<p>WEBSITE ADMINS:</p>
-					<p>Zachary Knippel (zjk910@mail.usask.ca)</p>
-					<p>Connor Nettleton-Gooding (cwn973@mail.usask.ca)</p>
+		<div class="box">
+			<div class="footer">
+				<div class="row">
+					<div class="col-box">
+						<p><figure>
+						<p style="font-size: 150%;">Copyright: Zachary Knippel & Connor Nettleton-Gooding</p>
+						<br>
+						<p>WEBSITE ADMINS:</p>
+						<p>Zachary Knippel (zjk910@mail.usask.ca)</p>
+						<p>Connor Nettleton-Gooding (cwn973@mail.usask.ca)</p>
+					</div>
 				</div>
 			</div>
 		</div>

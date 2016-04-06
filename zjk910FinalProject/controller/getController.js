@@ -31,14 +31,14 @@ var getApp =angular.module('getApp', [])
 				var retString = "";
 				if(response.data.length === undefined)
 				{
-					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.founding_year+ "   System:" + response.data.system +"\n";
+					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.release_year+ "   Publisher:" + response.data.publisher + "   Developer:" + response.data.developer +"   Budget:" + response.data.budget +"\n";
 				}
 				else{
 					for (i = 0; i < response.data.length; i++){
-						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].founding_year+ "   System:" + response.data[i].system +"\n";
+						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].release_year+ "   Publisher:" + response.data[i].publisher + "   Developer:" + response.data[i].developer +"   Budget:" + response.data[i].budget +"\n";
 					}
 				}
-     			document.getElementById("gameSysTextarea").value = retString;
+     			document.getElementById("gameTextarea").value = retString;
   			});
 		}
 
