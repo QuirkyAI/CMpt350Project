@@ -12,7 +12,6 @@
 	require_once('controller/regions_controller.php');
 	require_once('controller/sales_controller.php');
 	require_once('controller/systems_controller.php');
-	require_once('controller/users_controller.php');
 
 	function getCurrentUri()
 	  	  {
@@ -47,7 +46,6 @@
 	  $objreg_controller = new regions_controller();
 	  $objsales_controller = new sales_controller();
 	  $objsys_controller = new systems_controller();
-	  $objuser_controller = new users_controller();
 	  $method = $_SERVER['REQUEST_METHOD'];
 
 	 
