@@ -26,11 +26,11 @@
 
 
 		function setParameters($routes){
-			$this->table = $routes[0];
-			$this->key = $routes[1];
+			$this->table = urldecode($routes[0]);
+			$this->key = urldecode($routes[1]);
 			if(isset ($routes[2]))
 			{
-				$this->key2 = $routes[2];
+				$this->key2 = urldecode($routes[2]);
 			}
 
 

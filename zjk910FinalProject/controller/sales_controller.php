@@ -30,22 +30,22 @@
 
 		function setParameters($routes){
 			$this->table = $routes[0];
-			$this->key = $routes[1];
+			$this->key = urldecode($routes[1]);
 			if(isset ($routes[2]))
 			{
-				$this->key2 = $routes[2];
+				$this->key2 = urldecode($routes[2]);
 			}
 			if(isset ($routes[3]))
 			{
-				$this->key3 = $routes[3];
+				$this->key3 = urldecode($routes[3]);
 			}
 			if(isset ($routes[4]))
 			{
-				$this->key4 = $routes[4];
+				$this->key4 = urldecode($routes[4]);
 			}
 			if(isset ($routes[5]))
 			{
-				$this->key5 = $routes[5];
+				$this->key5 = urldecode($routes[5]);
 			}
 		}
 		

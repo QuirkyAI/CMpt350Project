@@ -24,7 +24,7 @@
 
 
 		function setParameters($routes){
-			$this->table = $routes[0];
+			$this->table = urldecode($routes[0]);
 
 
 	}

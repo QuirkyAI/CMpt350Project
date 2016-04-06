@@ -47,6 +47,7 @@
 			{
 				$req = $db->prepare('SELECT * FROM games WHERE game_title = :title');
 				$req->execute(array('title' => $title));
+				
 				foreach($req->fetchAll() as $game) {
 					$list[]= new game($game['game_title'], $game['release_year'],$game['publisher'], $game['developer'], $game['budget']);
 				}
