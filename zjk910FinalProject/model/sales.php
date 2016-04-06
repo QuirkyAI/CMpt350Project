@@ -38,6 +38,7 @@
 		}
 
 		public static function find($title, $rdate, $price, $sys, $org) {
+			$list = [];
 			$db = Database_Connection::getInstance();
 
 			if (isset($rdate))
