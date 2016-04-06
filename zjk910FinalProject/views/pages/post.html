@@ -2,25 +2,34 @@
 <html>
 <head>
 <style>
-div {
-  transition: all linear 0.5s;
-}
+	div {
+	  transition: all linear 0.5s;
+	}
 
 
-.ng-hide {
-  height: 0;
-}
+	.ng-hide {
+	  height: 0;
+	}
 
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src= "postController.js"></script>
+<script src= "controller/postController.js"></script>
 </head>
 <body>
 
 <h2 align="center">ADD DATA</h1>
-<p>Welcome to the add page! This is a bit of a complicated process, but it allows you to add data to our database. But before you start adding:</p>
+<p>Welcome to the add page! This is a bit of a complicated process, but it allows you to add data to our database. But before you start adding, we would like to establish the rules for our system.</p>
+<p>     1: The Publisher and Developer must first exist.</p>
+<p>     2: The Game must be added.</p>
+<p>     3: Please add in regions and systems that the game is released in.</p>
+<p>     4: Add in sales.</p>
+<br>
+<p>Please be respectful when adding this data in, as it can be difficult to sift through later for corrections.</p>
+<br>
+<br>
+
 <div ng-app="postApp" ng-controller='postController'>
 
 	<!-- when the add game button is cliicked it will call the function form slide to unhide/rehide the form that adds games to the database-->
