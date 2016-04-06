@@ -72,11 +72,11 @@ var getApp =angular.module('getApp', [])
 				var retString = "";
 				if(response.data.length === undefined)
 				{
-					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.founding_year+ "   System:" + response.data.sys +"\n";
+					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.release_year+ "   System:" + response.data.sys +"\n";
 				}
 				else{
 					for (i = 0; i < response.data.length; i++){
-						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].founding_year+ "   System:" + response.data[i].sys +"\n";
+						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].release_year+ "   System:" + response.data[i].sys +"\n";
 					}
 				}
      			document.getElementById("gameSysTextarea").value = retString;
@@ -112,11 +112,11 @@ var getApp =angular.module('getApp', [])
 				var retString = "";
 				if(response.data.length === undefined)
 				{
-					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.founding_year+ "   Region:" + response.data.region +"\n";
+					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.release_year+ "   Region:" + response.data.region +"\n";
 				}
 				else{
 					for (i = 0; i < response.data.length; i++){
-						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].founding_year+ "   Region:" + response.data[i].region +"\n";
+						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].release_year+ "   Region:" + response.data[i].region +"\n";
 					}
 				}
      			document.getElementById("gameRegTextarea").value = retString;
@@ -152,11 +152,11 @@ var getApp =angular.module('getApp', [])
 				var retString = "";
 				if(response.data.length === undefined)
 				{
-					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.founding_year+ "   Tag:" + response.data.tag +"\n";
+					retString = retString + "Game Title: "+ response.data.game_title+ "   Release Year:" + response.data.release_year+ "   Tag:" + response.data.tag +"\n";
 				}
 				else{
 					for (i = 0; i < response.data.length; i++){
-						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].founding_year+ "   Tag:" + response.data[i].tag +"\n";
+						retString = retString + "Game Title: "+ response.data[i].game_title+ "   Release Year:" + response.data[i].release_year+ "   Tag:" + response.data[i].tag +"\n";
 					}
 				}
      			document.getElementById("gameTagTextarea").value = retString;
