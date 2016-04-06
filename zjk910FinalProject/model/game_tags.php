@@ -22,7 +22,7 @@
 
 			
 			foreach($req->fetchAll() as $game_tags) {
-				$list[]= new $game_tags($game_tags['game_title'], $game_tags['release_year'],  $game_tags['tag']);
+				$list[]= new game_tags($game_tags['game_title'], $game_tags['release_year'],  $game_tags['tag']);
 			}
 			return $list;
 		}
@@ -39,7 +39,7 @@
 					$req->execute(array('title' => $title, 'rdate' => $rdate, 'reg' => $reg));
 					$game_tags = $req->fetch();
 
-					return new $game_tags($game_tags['game_title'], $game_tags['release_year'],  $game_tags['tag']);
+					return new game_tags($game_tags['game_title'], $game_tags['release_year'],  $game_tags['tag']);
 				}
 				else
 				{
@@ -48,7 +48,7 @@
 					$req->execute(array('title' => $title, 'rdate' => $rdate));
 					$game_tags = $req->fetch();
 					foreach($req->fetchAll() as $game_tags) {
-						$list[]= new $game_tags($game_tags['game_title'], $game_tags['release_year'],  $game_tags['tag']);
+						$list[]= new game_tags($game_tags['game_title'], $game_tags['release_year'],  $game_tags['tag']);
 					}
 					return $list;
 				}
@@ -61,7 +61,7 @@
 				$req = $db->prepare('SELECT * FROM game_tags WHERE game_title = :title');
 				$req->execute(array('title' => $title));
 				foreach($req->fetchAll() as $game_tags) {
-					$list[]= new $game_tags($game_tags['game_title'], $game_tags['release_year'],  $game_tags['tag']);
+					$list[]= new game_tags($game_tags['game_title'], $game_tags['release_year'],  $game_tags['tag']);
 				}
 				return $list;
 			}
