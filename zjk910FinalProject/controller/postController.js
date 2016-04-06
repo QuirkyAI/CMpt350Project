@@ -20,7 +20,7 @@ var postApp =angular.module('postApp', [])
 		$scope.gameSys =function logGameSystemGame(){
 			var json = {'game_title':  (document.getElementById("gameSystemGameTitle").value),
 						'release_year':  (document.getElementById("gameSystemGameReleaseYear").value),
-						'system':  (document.getElementById("gameSystem").value)};
+						'sys':  (document.getElementById("gameSystem").value)};
 			console.log( json);
 			$http.post('http://localhost/api.php/game_systems', json);
 		}
