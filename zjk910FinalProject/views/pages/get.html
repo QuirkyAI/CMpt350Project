@@ -4,19 +4,18 @@
 <style>
 div {
   transition: all linear 0.5s;
-  background-color: white;
 }
-
 
 .ng-hide {
   height: 0;
 }
 
+
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src= "getController.js"></script>
+<script src= "controller/getController.js"></script>
 </head>
 <body>
 
@@ -30,11 +29,11 @@ div {
 		<div >
 			<label  >Title</label>
 			<div >
-				<input type="text" id ="gameTitle">
+				<input type="text" id ="gameTitle" style="padding:0px 12px;">
 			</div>
 			<label >Release year</label>
 			<div >
-				<input type="number" id ="gameReleaseYear">
+				<input type="number" id ="gameReleaseYear" style="padding:0px 12px;">
 			</div>
 
 			<a ng-href='#here' ng-click='game()'  >submit</a>
@@ -52,15 +51,15 @@ div {
 		<div >
 			<label  >Title</label>
 			<div >
-				<input type="text" id ="gameSystemGameTitle">
+				<input type="text" id ="gameSystemGameTitle" style="padding:0px 12px;">
 			</div>
 			<label  >Release year</label>
 			<div >
-				<input type="number" id ="gameSystemGameReleaseYear">
+				<input type="number" id ="gameSystemGameReleaseYear" style="padding:0px 12px;">
 			</div>
 			<label  >Game System</label>
 			<div >
-				<input type="text" id ="gameSystem">
+				<input type="text" id ="gameSystem" style="padding:0px 12px;">
 			</div>
 			<a ng-href='#here' ng-click='gameSys()'  >submit</a>
 			<div>
@@ -77,15 +76,15 @@ div {
 		<div >
 			<label  >Title</label>
 			<div >
-				<input type="text" id ="gameRegionGameTitle">
+				<input type="text" id ="gameRegionGameTitle" style="padding:0px 12px;">
 			</div>
 			<label  >Release year</label>
 			<div >
-				<input type="number" id ="gameRegionGameReleaseYear">
+				<input type="number" id ="gameRegionGameReleaseYear" style="padding:0px 12px;">
 			</div>
 			<label  >Game Region</label>
 			<div >
-				<input type="text" id ="gameRegion">
+				<input type="text" id ="gameRegion" style="padding:0px 12px;">
 			</div>
 			<a ng-href='#here' ng-click='gameReg()'  >submit</a>
 			<div>
@@ -102,15 +101,15 @@ div {
 		<div >
 			<label >Title</label>
 			<div >
-				<input type="text" id ="gameTagGameTitle">
+				<input type="text" id ="gameTagGameTitle" style="padding:0px 12px;">
 			</div>
 			<label >Release year</label>
 			<div >
-				<input type="number" id ="gameTagGameReleaseYear">
+				<input type="number" id ="gameTagGameReleaseYear" style="padding:0px 12px;">
 			</div>
 			<label  >Game Tag</label>
 			<div >
-				<input type="text" id ="gameTag">
+				<input type="text" id ="gameTag" style="padding:0px 12px;">
 			</div>
 			<a ng-href='#here' ng-click='gameTag()'  >submit</a>
 			<div>
@@ -125,7 +124,7 @@ div {
 		<div >
 			<label  >Title</label>
 			<div >
-				<input type="text" id ="publisherName">
+				<input type="text" id ="publisherName" style="padding:0px 12px;">
 			</div>
 
 			<a ng-href='#here' ng-click='gamePub()' >submit</a>
@@ -142,7 +141,7 @@ div {
 		<div >
 			<label  >Title</label>
 			<div >
-				<input type="text" id ="developerName">
+				<input type="text" id ="developerName" style="padding:0px 12px;">
 			</div>
 
 			<a ng-href='#here' ng-click='gameDev()'  >submit</a>
@@ -159,23 +158,23 @@ div {
 		<div >
 			<label  >Title</label>
 			<div >
-				<input type="text" id ="salesGameTitle">
+				<input type="text" id ="salesGameTitle" style="padding:0px 12px;">
 			</div>
 			<label  >Release year</label>
 			<div >
-				<input type="number" id ="salesGameReleaseYear">
+				<input type="number" id ="salesGameReleaseYear" style="padding:0px 12px;">
 			</div>
 			<label  >Price</label>
 			<div >
-				<input type="number" id ="salesPrice">
+				<input type="number" id ="salesPrice" style="padding:0px 12px;">
 			</div>
 			<label  >Game System</label>
 			<div >
-				<input type="text" id ="salesSystem">
+				<input type="text" id ="salesSystem" style="padding:0px 12px;">
 			</div>
 			<label  >Organization</label>
 			<div >
-				<input type="text" id ="salesOrginization">
+				<input type="text" id ="salesOrginization" style="padding:0px 12px;">
 			</div>
 			<a ng-href='#here' ng-click='gameSale()'  >submit</a>
 			<div>

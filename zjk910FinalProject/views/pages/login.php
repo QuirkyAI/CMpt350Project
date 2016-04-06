@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<?php error_reporting(E_ALL & ~E_NOTICE);  ?>
-  <?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
+<?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
 	<head>
     <title>Geolocation</title>
     <style>
@@ -17,9 +14,7 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
   <body>
-	<h2 align="center">Hello <?php echo $_SESSION['FULLNAME']; ?>!</h2>
-	<IMG class="displayed" src="https://graph.facebook.com/<?php echo $_SESSION['FBID']; ?>/picture">
-	<h2 align="center">You are Currently Logged in From:</h2>
+	<h2 align="center">You are Currently Logged in From</h1>
     <div id="map"></div>
     <script>
       // Note: This example requires that you consent to location sharing when
@@ -79,16 +74,10 @@
 	<p>	Third, it has been seen time and time again that while these publishers are in business to make money, they are becoming more out-of-touch with their audience as the years drag on. Famous publisher Electronic Arts has made several odd decisions in the past, such as inputting microstransactions and free-to-play business models into $60 single-player games on release (such as Dragon Age: Inquisition, and Dead Space 3). Many triple-A publishers such as Electronic Arts (Capcom, SEGA, 2K, Ubisoft) have been having issues with their demographic recently, with critics giving lower and lower ratings in longstanding franchises as publishers continue to add sketchier business models to their products. This website will hopefully allow for another method in which to corroborate their anouncements.</p>
 	<p>	As for keeping their finger on the pulse of the gaming community, it appears that this is not the case. The Dead Space franchise (a survival-horror game with some third-person shooting mechanics about fighting zombies in space) effectively died with Dead Space 3, the third game in franchise. There are many possible reasons for this, such as the added microstransactions into a $60 product (it was one of the first to do this), the transistion from a survial horror game to cooperative shooter (alienating fans of the franchise in favor of other demographics with less interest), and the unachievable sales target of 5,000,000 units (the other two games sold around half that each). Resident Evil 6 was a critical failure. Games in long-standing franchises are consistently compared to their priors, and often found lacking. Even long-standing franchises such as the EA Sports games appear to be taking out features rather than adding any in.</p>
 	<p>	So, to see the effects of these products on the larger market, and to see the financial success or failure of these products, we created this application to hopefully allow users to keep a closer eye on the workings of the games industry. We don't expect you to completely trust our data - our users can add and update a lot of content - but we hope that it gives you a better view of the video game industry and the financial working of the gaming community. If we can encourage better behavior from just one publisher, and improve their consumer relations, we will consider our website a success.</p>
-	<br>
-	<br>
-	<p align="right">Best of luck to you all and please be respectful on this website,</p>
-	<p align="right">- Zachary Knippel and Connor Nettleton-Gooding</p>
-	<br>
   </body>
 <?php else: ?>     <!-- Before login --> 
 		<div class="container">
-		<h1>NOT CONNECTED! YOU MUST LOG IN TO ACCESS THIS WEBSITE!</h1>
+		<h1>NOT CONNECTED! YOU MUST LOG IN TO ACCESS THIS WEBSITE</h1>
 		<h2 align="center"><a href="fbconfig.php">Login with Facebook</a></h2>
 		</div>
 <?php endif ?>
-</html>

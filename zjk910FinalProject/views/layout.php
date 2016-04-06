@@ -1,4 +1,5 @@
 <html>
+	<?php error_reporting(E_ALL & ~E_NOTICE);  ?>
 	<head>
 		
 		<!-- Place my name in the title -->
