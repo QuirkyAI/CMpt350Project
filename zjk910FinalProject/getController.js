@@ -11,7 +11,7 @@ var getApp =angular.module('getApp', [])
 
 			
 			var title = document.getElementById("gameSystemGameTitle").value;
-			var release_year document.getElementById("gameSystemGameReleaseYear").value;
+			var release_year = document.getElementById("gameSystemGameReleaseYear").value;
 			var address = 'http://localhost/api.php/games';
 
 			title = title.toLowerCase();
@@ -45,9 +45,9 @@ var getApp =angular.module('getApp', [])
 		$scope.gameSys =function logGameSystemGame(){
 
 
-			var title = document.getElementById("gameSystemGameTitle").value,
-			var release_year document.getElementById("gameSystemGameReleaseYear").value,
-			var game_system =document.getElementById("gameSystem").value}
+			var title = document.getElementById("gameSystemGameTitle").value;
+			var release_year =document.getElementById("gameSystemGameReleaseYear").value;
+			var game_system =document.getElementById("gameSystem").value;
 			var address = 'http://localhost/api.php/game_systems';
 
 			title = title.toLowerCase();
@@ -85,9 +85,9 @@ var getApp =angular.module('getApp', [])
 
 		$scope.gameReg =function logGameRegionGame(){
 
-			var title = document.getElementById("gameRegionGameTitle").value,
-			var release_year document.getElementById("gameRegionGameReleaseYear").value,
-			var game_region =document.getElementById("gameRegion").value}
+			var title = document.getElementById("gameRegionGameTitle").value;
+			var release_year= document.getElementById("gameRegionGameReleaseYear").value;
+			var game_region =document.getElementById("gameRegion").value;
 			var address = 'http://localhost/api.php/game_regions';
 
 			title = title.toLowerCase();
@@ -123,11 +123,11 @@ var getApp =angular.module('getApp', [])
   			});
 		}
 
-		}
+		
 		$scope.gameTag =function logGameTag(){
-			var title = document.getElementById("gameTagGameTitle").value,
-			var release_year document.getElementById("gameTagGameReleaseYear").value,
-			var game_tag =document.getElementById("gameTag").value}
+			var title = document.getElementById("gameTagGameTitle").value;
+			var release_year= document.getElementById("gameTagGameReleaseYear").value;
+			var game_tag =document.getElementById("gameTag").value;
 			var address = 'http://localhost/api.php/game_tags';
 
 			title = title.toLowerCase();
@@ -162,7 +162,7 @@ var getApp =angular.module('getApp', [])
      			document.getElementById("gameTagTextarea").value = retString;
   			});
 		}
-		}
+		
 
 
 		$scope.gamePub =function logPublisher(){
@@ -234,8 +234,100 @@ var getApp =angular.module('getApp', [])
 				'organization' : document.getElementById("salesOrginization").value,
 				'region' : document.getElementById("salesRegion").value};
 			console.log(json);
-			$http.post('http://localhost/api.php/sales', json);
+
+			var game_title = document.getElementById("salesGameTitle").value;
+			var release_year = document.getElementById("salesGameReleaseYear").value;
+			var price = document.getElementById("salesPrice").value;
+			var system =document.getElementById("salesSystem").value;
+			var organization = document.getElementById("salesOrginization").value;
+
+			game_title = game_title.toLowerCase();
+			release_year = release_year.toLowerCase();
+			price = price.toLowerCase();
+			system = system.toLowerCase();
+			organization = organization.toLowerCase();
+
+			var address = 'http://localhost/api.php/sales';
+
+			if( game_title != "")
+			{
+				address = address + "/" + game_title;
+				if( release_year != "")
+				{
+					address = address + "/" + release_year;
+					if( price != "")
+					{
+						address = address + "/" + price;
+						if( system != "")
+						{
+							address = address + "/" + system;
+							if( organization != "")
+							{
+								address = address + "/" + organization;
+							}
+						}
+
+					}
+				}
+			}
+
+			$http.get(address)
+			.then(function(response) {
+				var retString = "";
+				if(response.data.length === undefined)
+				{
+					retString = retString + "Game Title: "+ response.data.game_title+ "  Release Date:" + response.data.release_date+ "   Price:" + response.data.price+ "   System:" + response.data.system + "   Units:" + response.data.units+ "   Last Update:" + response.data.last_update+ "   Organization:" + response.data.organization+ "   Region:" + response.data.region +" " +"\n";
+				}
+				else{
+					for (i = 0; i < response.data.length; i++){
+					retString = retString + "Game Title: "+ response.data[i].game_title+ "  Release Date:" + response.data[i].release_date+ "   Price:" + response.data[i].price+ "   System:" + response.data[i].system + "   Units:" + response.data[i].units+ "   Last Update:" + response.data[i].last_update+ "   Organization:" + response.data[i].organization+ "   Region:" + response.data[i].region+ " " +"\n";
+					}
+				}
+     			document.getElementById("gameSalesTextarea").value = retString;
+  			});
 
 			
+		}
+
+		$scope.reg=function reg(){
+
+			var address = 'http://localhost/api.php/regions';
+			console.log("here1");
+			$http.get(address)
+			.then(function(response) {
+				var retString = "";
+				if(response.data.length === undefined)
+				{
+					retString = retString + "Region: "+ response.data.region+ " " +"\n";
+				}
+				else{
+					for (i = 0; i < response.data.length; i++){
+						console.log("inner1");
+						retString = retString + "Region: "+ response.data[i].region+ " " +"\n";
+					}
+				}
+     			document.getElementById("gameRegionsTextarea").value = retString;
+  			});
+		}
+
+		$scope.sys =function sys(){
+
+			var address = 'http://localhost/api.php/systems';
+			console.log("here2");
+			$http.get(address)
+			.then(function(response) {
+				var retString = "";
+				if(response.data.length === undefined)
+				{
+					retString = retString + "System: "+ response.data.sys+ " " +"\n";
+				}
+				else{
+					for (i = 0; i < response.data.length; i++){
+						console.log("inner2");
+						retString = retString + "System: "+ response.data[i].sys +" " +"\n";
+					}
+				}
+     			document.getElementById("gameSystemsTextarea").value = retString;
+  			});
 		}
 	})

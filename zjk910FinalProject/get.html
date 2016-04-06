@@ -24,7 +24,7 @@ div {
 <div ng-app="getApp" ng-controller='getController'>
 
 	<!-- when the add game button is cliicked it will call the function form slide to unhide/rehide the form that adds games to the database-->
-	<input type="submit" value="Add Game" onclick="formSlide('gameForm')"/>
+	<input type="submit" value="Get Game" onclick="formSlide('gameForm')"/>
 	<!-- this is the form for putting a new game in the system -->
 	<form ng-hide="myCheck" id="gameForm" hidden>
 		<div >
@@ -47,7 +47,7 @@ div {
 	<!-- this is the form for associating a game with a system-->
 	<br>
 	</br>
-	<input type="submit" value="Add Game to System" onclick="formSlide('gameSystemsForm')"/>
+	<input type="submit" value="Get Game to System" onclick="formSlide('gameSystemsForm')"/>
 	<form ng-hide="myCheck" id="gameSystemsForm" hidden>
 		<div >
 			<label  >Title</label>
@@ -72,7 +72,7 @@ div {
 	</br>
 	<!-- this is the form for associating a game with a region-->
 
-	<input type="submit" value="Add Game to Region" onclick="formSlide('gameRegionForm')"/>
+	<input type="submit" value="Get Game to Region" onclick="formSlide('gameRegionForm')"/>
 	<form ng-hide="myCheck" id="gameRegionForm" hidden>
 		<div >
 			<label  >Title</label>
@@ -97,7 +97,7 @@ div {
 	</br>
 	<!-- this is the form for associating a game with a tag-->
 
-	<input type="submit" value="Add Tag To Game" onclick="formSlide('gameTagForm')"/>
+	<input type="submit" value="Get Tag To Game" onclick="formSlide('gameTagForm')"/>
 	<form ng-hide="myCheck" id="gameTagForm" hidden>
 		<div >
 			<label >Title</label>
@@ -120,7 +120,7 @@ div {
 	</form>
 	<br>
 	</br>
-	<input type="submit" value="Add Publisher" onclick="formSlide('publisherForm')"/>
+	<input type="submit" value="Get Publisher" onclick="formSlide('publisherForm')"/>
 	<form ng-hide="myCheck" id="publisherForm" hidden>
 		<div >
 			<label  >Title</label>
@@ -137,7 +137,7 @@ div {
 
 	<br>
 	</br>
-	<input type="submit" value="Add Developer" onclick="formSlide('developerForm')"/>
+	<input type="submit" value="Get Developer" onclick="formSlide('developerForm')"/>
 	<form ng-hide="myCheck" id="developerForm" hidden>
 		<div >
 			<label  >Title</label>
@@ -154,7 +154,7 @@ div {
 
 	<br>
 	</br>
-	<input type="submit" value="Add Sales" onclick="formSlide('salesForm')"/>
+	<input type="submit" value="Get Sales" onclick="formSlide('salesForm')"/>
 	<form ng-hide="myCheck" id="salesForm" hidden>
 		<div >
 			<label  >Title</label>
@@ -183,6 +183,38 @@ div {
 			</div>
 		</div>
 	</form>
+
+	<br>
+	</br>
+
+	<input type="submit" value="Get Regions" onclick="formSlide('regionsForm')"/>
+	<form ng-hide="myCheck" id="regionsForm" hidden>
+		<div >
+
+
+			<a ng-href='#here' ng-click='reg()'  >submit</a>
+			<div>
+			<textarea rows="4" cols="100" id="gameRegionsTextarea"></textarea>
+			</div>
+		</div>
+	</form>
+
+	<br>
+	</br>
+	
+	<input type="submit" value="Get Systems" onclick="formSlide('systemsForm')"/>
+	<form ng-hide="myCheck" id="systemsForm" hidden>
+		<div >
+
+			<a ng-href='#here' ng-click='sys()'  >submit</a>
+			<div>
+			<textarea rows="4" cols="100" id="gameSystemsTextarea"></textarea>
+			</div>
+		</div>
+	</form>
+
+	<br>
+	</br>
 
 </div>
 

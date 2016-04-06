@@ -147,16 +147,43 @@ var deleteApp =angular.module('deleteApp', [])
 		}
 
 		$scope.gameSale =function logSales(){
-			var json = {'game_title' : document.getElementById("salesGameTitle").value,
-				'release_year' : document.getElementById("salesGameReleaseYear").value,
-				'price' : document.getElementById("salesPrice").value,
-				'system':document.getElementById("salesSystem").value,
-				'units' :document.getElementById("saleUnits").value,
-				'last_update' : document.getElementById("salesUpdate").value,
-				'organization' : document.getElementById("salesOrginization").value,
-				'region' : document.getElementById("salesRegion").value};
-			console.log(json);
-			$http.post('http://localhost/api.php/sales', json);
+
+			var game_title = document.getElementById("salesGameTitle").value;
+			var release_year = document.getElementById("salesGameReleaseYear").value;
+			var price = document.getElementById("salesPrice").value;
+			var system =document.getElementById("salesSystem").value;
+			var organization = document.getElementById("salesOrginization").value;
+
+			game_title = game_title.toLowerCase();
+			release_year = release_year.toLowerCase();
+			price = price.toLowerCase();
+			system = system.toLowerCase();
+			organization = organization.toLowerCase();
+
+			var address = 'http://localhost/api.php/sales';
+
+			if( game_title != "")
+			{
+				address = address + "/" + game_title;
+				if( release_year != "")
+				{
+					address = address + "/" + release_year;
+					if( price != "")
+					{
+						address = address + "/" + price;
+						if( system != "")
+						{
+							address = address + "/" + system;
+							if( organization != "")
+							{
+								address = address + "/" + organization;
+								$http.delete(address);
+							}
+						}
+
+					}
+				}
+			}
 
 			
 		}
